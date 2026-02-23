@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n-title="doc_title">Гид по Худжанду</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="page-shell hero--home">
+
+  <!-- SPLASH -->
+  <div id="splash" class="splash" role="button" tabindex="0" aria-label="Start">
+    <div class="splash-overlay"></div>
+
+    <div class="splash-lang" aria-label="Language">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button class="lang-btn" type="button" data-lang="ru">RU</button>
+        <button class="lang-btn" type="button" data-lang="en">EN</button>
+      </div>
+    </div>
+
+    <div class="splash-content">
+      <div class="splash-title" data-i18n="city_name">Khujand</div>
+      <div class="splash-hint" data-i18n="tap_to_start">Нажмите</div>
+    </div>
+  </div>
+
+<header class="hero">
+  <div class="hero-top">
+    <div class="top-controls">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button class="lang-btn" type="button" data-lang="ru">RU</button>
+        <button class="lang-btn" type="button" data-lang="en">EN</button>
+      </div>
+
+ 
+      </button>
+    </div>
+  </div>
+
+  <h1 data-i18n="hero_welcome">Добро пожаловать!</h1>
+</header>
+
+  <main class="container">
+    <section class="page">
+      <div class="grid">
+        <a class="card card--journal" href="pages/journal.html"><h2 data-i18n="home_journal">Журнал “Худжанд”</h2></a>
+        <a class="card card--routes" href="pages/routes.html"><h2 data-i18n="home_routes">Современные и исторические маршруты</h2></a>
+        <a class="card card--restaurants" href="pages/restaurants.html"><h2 data-i18n="home_restaurants">Рестораны и национальные блюда</h2></a>
+        <a class="card card--gift" href="pages/gift-store.html"><h2 data-i18n="home_gift_store">Магазин подарков</h2></a>
+        <a class="card card--services" href="pages/tourist-services.html"><h2 data-i18n="home_tourist_services">Услуги для туристов</h2></a>
+        <a class="card card--essentials" href="pages/essentials.html"><h2 data-i18n="home_essentials">Помощь / информация первой необходимости</h2></a>
+      </div>
+    </section>
+  </main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>
+      © <span id="year"></span> Khujand Guide · 
+      <span data-i18n="footer_author">Создано Olimjon Oripov</span>
+    </p>
+  </div>
+</footer>
+
+  <script src="assets/js/i18n.js" defer></script>
+  <script src="assets/js/data.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+
+</div>
+</body>
+</html>

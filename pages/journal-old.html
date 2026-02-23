@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n-title="doc_title">Гид по квартире</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body class="page-shell hero--journal-old">
+  <header class="hero">
+    <div class="hero-top">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button class="lang-btn" type="button" data-lang="ru">RU</button>
+        <button class="lang-btn" type="button" data-lang="en">EN</button>
+      </div>
+    </div>
+    <h1 data-i18n="journal_old_title">Старый Худжанд</h1>
+  </header>
+
+  <main class="container">
+    <div class="topbar">
+      <a class="btn" href="./journal.html" data-i18n="btn_back_journal">← Назад в Журнал</a>
+<a class="btn" href="../index.html#home" data-i18n="btn_home">На главную</a>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="journal_old_title">Старый Худжанд</h2>
+      <p style="margin:0; opacity:.9;"><span data-i18n="journal_modern_hint">Нажмите на место, чтобы открыть описание и QR-код локации.</span></p>
+    </div>
+
+    <div id="old-grid" class="grid" style="grid-template-columns:repeat(2,1fr);"></div>
+  </main>
+
+  <!-- MODAL -->
+  <div id="placeModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-modal-close="1"></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-content">
+        <div id="modalHero" class="modal-hero" style="background-image:url('../assets/img/Khujand.png');"></div>
+        <div class="modal-body">
+          <div class="modal-title-row">
+            <h3 id="modalTitle" class="modal-title">—</h3>
+            <button id="modalCloseBtn" class="modal-close" type="button" data-i18n="btn_close">Закрыть</button>
+          </div>
+          <div class="modal-grid">
+            <div><div id="modalText" class="modal-text">—</div></div>
+            <div class="qr-box">
+              <img id="modalQr" alt="QR" src="" />
+              <div class="qr-caption" data-i18n="qr_caption">Отсканируйте QR, чтобы открыть локацию</div>
+              <div class="qr-actions">
+                <a id="modalMapBtn" class="pill" href="#" target="_blank" rel="noopener" data-i18n="btn_open_map">Открыть на карте</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/js/i18n.js" defer></script>
+  <script src="../assets/js/data.js" defer></script>
+  <script src="../assets/js/app.js" defer></script>
+</body>
+</html>

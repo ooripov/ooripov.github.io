@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-i18n-title="doc_title">Гид по квартире</title>
+
+<style>
+:root{ --radius:18px; --maxw:1100px; }
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:#0b0f14;
+  color:#fff;
+  opacity: 1;
+  transition: opacity .22s ease;
+}
+body.lang-fade{ opacity: 0; }
+
+/* HERO */
+.hero-top{
+  position:absolute;
+  top:14px;
+  right:14px;
+  z-index:2;
+}
+.lang-switch{
+  display:flex;
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 999px;
+  overflow:hidden;
+  backdrop-filter: blur(10px);
+}
+.lang-btn{
+  appearance:none;
+  border:0;
+  background:transparent;
+  color:#fff;
+  padding:8px 10px;
+  cursor:pointer;
+  font-weight:700;
+  letter-spacing:.4px;
+}
+.lang-btn[aria-pressed="true"]{ background: rgba(255,255,255,.14); }
+.lang-btn:hover{ background: rgba(255,255,255,.10); }
+
+.hero{
+  position:relative;
+  height:260px;
+  display:flex;
+  align-items:flex-end;
+  padding:20px;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0) 60%, #0b0f14 100%),
+    var(--hero-bg, url('Khujand.png')) center/cover no-repeat;
+}
+.hero h1{
+  position:relative;
+  margin:0;
+  font-size:28px;
+}
+
+/* LAYOUT */
+.container{ max-width:var(--maxw); margin:auto; padding:20px; }
+.grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:15px; }
+
+/* CARD */
+.card{
+  position:relative;
+  height:170px;
+  border-radius:var(--radius);
+  overflow:hidden;
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:flex-end;
+  padding:15px;
+  text-decoration:none;
+  color:inherit;
+  outline:2px solid transparent;
+  transition: transform .12s ease, outline-color .12s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,.22);
+  border: 1px solid rgba(255,255,255,.10);
+}
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.12),rgba(0,0,0,.82));
+}
+.card h2{
+  position:relative;
+  z-index:1;
+  margin:0;
+  font-size:18px;
+}
+.card:hover{ transform: translateY(-3px); outline-color: rgba(255,255,255,.16); }
+
+/* NAV / SECTIONS */
+.page{ display:block; }
+.hidden{ display:none; }
+.topbar{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:space-between;
+  margin: 6px 0 14px;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 12px;
+  border-radius:12px;
+  background: rgba(255,255,255,.08);
+  text-decoration:none;
+  color:inherit;
+  border:1px solid rgba(255,255,255,.10);
+}
+.btn:hover{ background: rgba(255,255,255,.12); }
+.section{
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: var(--radius);
+  padding: 14px;
+  margin: 12px 0;
+  box-shadow: 0 12px 30px rgba(0,0,0,.16);
+  backdrop-filter: blur(10px);
+}
+.section h2{ margin:0 0 8px; font-size:18px; }
+.section ul{ margin: 8px 0 0 18px; }
+
+/* Home images */
+#home .card:nth-child(1){background-image:url('khujand_view.avif');} /* журнал */
+#home .card:nth-child(2){background-image:url('Roads.jpg');}         /* маршруты */
+#home .card:nth-child(3){background-image:url('meals.jpg');}         /* рестораны */
+#home .card:nth-child(4){background-image:url('gifts.jpg');}         /* магазин подарков */
+#home .card:nth-child(5){background-image:url('Uslugi.jpg');}        /* услуги туриста */
+#home .card:nth-child(6){background-image:url('info.avif');}         /* помощь/инфо */
+
+@media(max-width:900px){ .grid{grid-template-columns:repeat(2,1fr)} }
+@media(max-width:500px){ .grid{grid-template-columns:1fr} .hero{height:240px;} }
+
+/* Page transitions */
+.page{
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .18s ease, transform .18s ease;
+}
+.page.active{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* PLACE CARDS */
+.places{ display:flex; flex-direction:column; gap:12px; margin-top:10px; }
+.place-card{
+  border-radius: 16px;
+  overflow:hidden;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.06);
+  box-shadow: 0 14px 34px rgba(0,0,0,.18);
+}
+.place-head{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding: 12px 12px 8px;
+}
+.place-title{ font-weight: 800; font-size: 16px; margin:0; }
+.place-sub{ margin:6px 0 0; opacity:.9; font-size: 13px; line-height: 1.35; }
+.place-meta{ padding: 0 12px 10px; display:grid; gap:6px; }
+.meta-row{ display:flex; gap:8px; align-items:flex-start; font-size: 13px; opacity:.92; }
+.meta-k{ opacity:.72; min-width: 78px; }
+.place-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding: 10px 12px 12px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding: 9px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.08);
+  color:#fff;
+  text-decoration:none;
+  cursor:pointer;
+  user-select:none;
+}
+.pill:hover{ background: rgba(255,255,255,.12); }
+.pill:active{ transform: translateY(1px); }
+
+/* SPLASH */
+.splash{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:none;
+  align-items:flex-end;
+  justify-content:center;
+  padding:34px 18px;
+  background: url('Khujand.png') center/cover no-repeat;
+  cursor:pointer;
+  transform: translateY(0%);
+  opacity: 1;
+  transition: transform .45s ease, opacity .35s ease;
+  will-change: transform, opacity;
+}
+.splash-overlay{
+  position:absolute;
+  inset:0;
+  background: linear-gradient(to bottom, rgba(0,0,0,.10), rgba(0,0,0,.78));
+}
+.splash-lang{
+  position:absolute;
+  top:16px;
+  right:16px;
+  z-index:2;
+}
+.splash-content{
+  position:relative;
+  z-index:1;
+  text-align:center;
+  max-width: 520px;
+}
+.splash-title{
+  font-size:42px;
+  font-weight:800;
+  letter-spacing:.8px;
+  margin-bottom:8px;
+}
+.splash-hint{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 14px;
+  border-radius:999px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.18);
+  backdrop-filter: blur(10px);
+  font-weight:700;
+}
+.splash:focus-visible{ outline: 3px solid rgba(255,255,255,.28); outline-offset: -3px; }
+
+/* curtain close animation */
+.splash.closing{
+  transform: translateY(-105%);
+  opacity: .98;
+}
+
+/* when splash active */
+body.splash-active .hero,
+body.splash-active .container{ display:none; }
+body.splash-active .splash{ display:flex; }
+
+/* during closing we reveal page under the "curtain" */
+body.splash-closing .hero,
+body.splash-closing .container{ display:block; }
+body.splash-closing .splash{ display:flex; }
+
+@media(max-width:500px){
+  .splash-title{ font-size:34px; }
+}
+
+/* SPOT CARDS (Modern/Old journal places + gifts) */
+.spot-card{
+  border:0;
+  width:100%;
+  text-align:left;
+  cursor:pointer;
+}
+.spot-card:focus-visible{ outline:3px solid rgba(255,255,255,.26); outline-offset:2px; }
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  display:none;
+}
+.modal.open{ display:block; }
+.modal-backdrop{
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,.65);
+  backdrop-filter: blur(6px);
+}
+.modal-dialog{
+  position:relative;
+  max-width: 920px;
+  margin: 5vh auto;
+  padding: 0 16px;
+}
+.modal-content{
+  border-radius: 20px;
+  overflow:hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(18,25,35,.92);
+  box-shadow: 0 30px 70px rgba(0,0,0,.55);
+}
+.modal-hero{
+  height: 240px;
+  background: center/cover no-repeat;
+  position:relative;
+}
+.modal-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(to bottom, rgba(0,0,0,.08), rgba(0,0,0,.76));
+}
+.modal-body{
+  padding: 14px 14px 16px;
+  display:grid;
+  gap:12px;
+}
+.modal-title-row{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+}
+.modal-title{ margin:0; font-size: 18px; font-weight: 900; }
+.modal-close{
+  appearance:none;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.08);
+  color:#fff;
+  border-radius: 12px;
+  padding: 8px 10px;
+  cursor:pointer;
+}
+.modal-close:hover{ background: rgba(255,255,255,.12); }
+
+.modal-grid{
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap:12px;
+  align-items:start;
+}
+.modal-text{
+  opacity:.95;
+  line-height: 1.55;
+  font-size: 14px;
+  margin:0;
+}
+.modal-price{
+  font-weight: 900;
+  font-size: 16px;
+  margin: 0 0 8px;
+  opacity: .98;
+}
+.qr-box{
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.06);
+  padding: 12px;
+  text-align:center;
+}
+.qr-box img{ width: 180px; height: 180px; border-radius: 12px; background: rgba(255,255,255,.06); }
+.qr-caption{ margin-top:8px; opacity:.85; font-size: 13px; }
+.qr-actions{ display:flex; justify-content:center; margin-top:10px; }
+
+@media(max-width:760px){
+  .modal-hero{ height: 200px; }
+  .modal-grid{ grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- SPLASH / START SCREEN -->
+<div id="splash" class="splash" role="button" tabindex="0" aria-label="Start">
+  <div class="splash-overlay"></div>
+  <div class="splash-lang" aria-label="Language">
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button class="lang-btn" type="button" data-lang="ru">RU</button>
+      <button class="lang-btn" type="button" data-lang="en">EN</button>
+    </div>
+  </div>
+  <div class="splash-content">
+    <div class="splash-title" data-i18n="city_name">Khujand</div>
+    <div class="splash-hint" data-i18n="tap_to_start">Нажмите</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero-top">
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button class="lang-btn" type="button" data-lang="ru">RU</button>
+      <button class="lang-btn" type="button" data-lang="en">EN</button>
+    </div>
+  </div>
+  <h1 data-i18n="hero_welcome">Добро пожаловать!</h1>
+</header>
+
+<div class="container">
+
+  <!-- ГЛАВНАЯ (СЕТКА) -->
+  <section id="home" class="page">
+    <div class="grid">
+      <a class="card" href="#journal"><h2 data-i18n="home_journal">Журнал “Худжанд”</h2></a>
+      <a class="card" href="#routes"><h2 data-i18n="home_routes">Культурные и исторические маршруты</h2></a>
+      <a class="card" href="#restaurants"><h2 data-i18n="home_restaurants">Рестораны и национальные блюда</h2></a>
+      <a class="card" href="#gift-store"><h2 data-i18n="home_gift_store">Магазин подарков</h2></a>
+      <a class="card" href="#tourist-services"><h2 data-i18n="home_tourist_services">Услуги для туристов</h2></a>
+      <a class="card" href="#essentials"><h2 data-i18n="home_essentials">Помощь / информация первой необходимости</h2></a>
+    </div>
+  </section>
+
+  <!-- 1 -->
+  <section id="journal" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#home" data-i18n="btn_home">← На главную</a>
+      <a class="btn" href="javascript:history.back()" data-i18n="btn_back">↩ Назад</a>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="journal_title">Журнал “Худжанд”</h2>
+      <p style="margin:0; opacity:.9;"><span data-i18n="journal_desc">Выбери направление — современный город или атмосферные старые кварталы.</span></p>
+    </div>
+
+    <div class="grid" style="grid-template-columns:repeat(2,1fr);">
+      <a class="card" href="#journal-modern" style="height:190px; background-image:url('Khujand.png');">
+        <h2 data-i18n="journal_modern_title">Современный Худжанд</h2>
+      </a>
+      <a class="card" href="#journal-old" style="height:190px; background-image:url('Khujand.png');">
+        <h2 data-i18n="journal_old_title">Старый Худжанд</h2>
+      </a>
+    </div>
+  </section>
+
+  <!-- 1.1 -->
+  <section id="journal-modern" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#journal" data-i18n="btn_back_journal">← Назад в Журнал</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="journal_modern_title">Современный Худжанд</h2>
+      <p style="margin:0; opacity:.9;"><span data-i18n="journal_modern_hint">Нажмите на место, чтобы открыть описание и QR-код локации.</span></p>
+    </div>
+
+    <div id="modern-grid" class="grid" style="grid-template-columns:repeat(2,1fr);"></div>
+  </section>
+
+  <!-- 1.2 -->
+  <section id="journal-old" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#journal" data-i18n="btn_back_journal">← Назад в Журнал</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="journal_old_title">Старый Худжанд</h2>
+      <p style="margin:0; opacity:.9;"><span data-i18n="journal_modern_hint">Нажмите на место, чтобы открыть описание и QR-код локации.</span></p>
+    </div>
+
+    <div id="old-grid" class="grid" style="grid-template-columns:repeat(2,1fr);"></div>
+  </section>
+
+  <!-- 2 -->
+  <section id="essentials" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#home" data-i18n="btn_home">← На главную</a>
+      <a class="btn" href="javascript:history.back()" data-i18n="btn_back">↩ Назад</a>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="essentials_title">Помощь / информация первой необходимости</h2>
+      <p style="margin:0; opacity:.9;"><span data-i18n="essentials_desc">Быстрые ответы: деньги, связь, такси, аптеки и полезные точки.</span></p>
+    </div>
+
+    <div class="grid" style="grid-template-columns:repeat(2,1fr);">
+      <a class="card" href="#essentials-host" style="height:190px; background-image:url('Khujand.png');">
+        <h2 data-i18n="essentials_host_help">Помощь хозяина / личный сервис</h2>
+      </a>
+      <a class="card" href="#essentials-banks" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="essentials_banks">Банки, отделения и банкоматы</h2></a>
+      <a class="card" href="#essentials-sim" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="essentials_sim">Сотовые компании и SIM-карты</h2></a>
+      <a class="card" href="#essentials-taxi" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="essentials_taxi">Такси и приложения для вызова</h2></a>
+      <a class="card" href="#essentials-pharmacy" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="essentials_pharmacy">Аптеки и экстренные телефоны</h2></a>
+    </div>
+  </section>
+
+  <!-- 2.1 -->
+  <section id="essentials-banks" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#essentials" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="essentials_banks">Банки, отделения и банкоматы</h2>
+      <ul><li>Банки, отделения и банкоматы</li></ul>
+    </div>
+  </section>
+
+  <!-- 2.3 -->
+  <section id="essentials-sim" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#essentials" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="essentials_sim">Сотовые компании и SIM-карты</h2>
+      <ul><li>Сотовые компании и SIM-карты</li></ul>
+    </div>
+  </section>
+
+  <!-- 2.4 -->
+  <section id="essentials-taxi" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#essentials" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="essentials_taxi">Такси и приложения для вызова</h2>
+      <ul><li>Такси и приложения для вызова</li></ul>
+    </div>
+  </section>
+
+  <!-- 2.5 -->
+  <section id="essentials-pharmacy" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#essentials" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="essentials_pharmacy_full">Аптеки и экстренные телефоны (скорой, полиции)</h2>
+      <ul><li>Аптеки и экстренные телефоны (скорой, полиции)</li></ul>
+    </div>
+  </section>
+
+  <!-- 2.7 NEW -->
+  <section id="essentials-host" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#essentials" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="host_title">Помощь хозяина / личный сервис</h2>
+      <p style="margin:0; opacity:.9;"><span data-i18n="host_desc">Связь 24/7, советы и помощь по любым вопросам.</span></p>
+
+      <div class="grid" style="grid-template-columns:repeat(2,1fr); margin-top:12px;">
+        <a class="card" href="#host-contacts" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="host_contacts_full">Контакты для связи 24/7</h2></a>
+        <a class="card" href="#host-booking" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="host_booking_full">Настройки бронирования и консультации</h2></a>
+        <a class="card" href="#host-advice" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="host_advice_card">Советы по маршрутам</h2></a>
+        <a class="card" href="#host-tips" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="host_tips_card">Подсказки</h2></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="restaurants" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#home" data-i18n="btn_home">← На главную</a>
+      <a class="btn" href="javascript:history.back()" data-i18n="btn_back">↩ Назад</a>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="restaurants_title">Рестораны и национальные блюда</h2>
+      <p style="margin:0; opacity:.9;"><span data-i18n="restaurants_desc">Выбери раздел — рейтинги, блюда, локальные места или фото/описания.</span></p>
+    </div>
+
+    <div class="grid" style="grid-template-columns:repeat(2,1fr);">
+      <a class="card" href="#restaurants-rated" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="restaurants_rated">Рестораны и кафе с рейтингом и меню</h2></a>
+      <a class="card" href="#restaurants-dishes" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="restaurants_dishes">Национальные блюда</h2></a>
+      <a class="card" href="#restaurants-local" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="restaurants_local">Локальные места вне туристических троп</h2></a>
+      <a class="card" href="#restaurants-photos" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="restaurants_photos">Фото и описание блюд</h2></a>
+    </div>
+  </section>
+
+  <!-- 3.1 -->
+  <section id="restaurants-rated" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#restaurants" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="restaurants_rated">Рестораны и кафе с рейтингом и меню</h2>
+      <ul><li data-i18n="coming_soon">Скоро добавим подробности…</li></ul>
+    </div>
+  </section>
+
+  <!-- 3.2 -->
+  <section id="restaurants-dishes" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#restaurants" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="restaurants_dishes_full">Национальные блюда: плов, манты, самса, шашлык</h2>
+      <ul><li data-i18n="coming_soon">Скоро добавим подробности…</li></ul>
+    </div>
+  </section>
+
+  <!-- 3.3 -->
+  <section id="restaurants-local" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#restaurants" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="restaurants_local">Локальные места вне туристических троп</h2>
+      <ul><li data-i18n="coming_soon">Скоро добавим подробности…</li></ul>
+    </div>
+  </section>
+
+  <!-- 3.4 -->
+  <section id="restaurants-photos" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#restaurants" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="restaurants_photos">Фото и описание блюд</h2>
+      <ul><li data-i18n="coming_soon">Скоро добавим подробности…</li></ul>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="routes" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#home" data-i18n="btn_home">← На главную</a>
+      <a class="btn" href="javascript:history.back()" data-i18n="btn_back">↩ Назад</a>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="routes_title">Культурные и исторические маршруты</h2>
+      <p style="margin:0; opacity:.9;"><span data-i18n="routes_desc">Выбери маршрут — авторский, ночной, Кайраккум и другие форматы.</span></p>
+    </div>
+
+    <div class="grid" style="grid-template-columns:repeat(2,1fr);">
+      <a class="card" href="#routes-author" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="routes_author_card">Авторский маршрут по старому Худжанду</h2></a>
+      <a class="card" href="#routes-night" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="routes_night_full">Ночная прогулка по городу на машине</h2></a>
+      <a class="card" href="#routes-kayrakkum" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="routes_kayrakkum_full">Дневная поездка в Кайраккум</h2></a>
+      <a class="card" href="#routes-outskirts" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="routes_outskirts_full">Окраины города</h2></a>
+      <a class="card" href="#routes-livecity" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="routes_livecity_card">“Живой город”</h2></a>
+      <a class="card" href="#routes-phototour" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="routes_phototour_card">Фото-тур</h2></a>
+    </div>
+  </section>
+
+  <!-- 4.1 -->
+  <section id="routes-author" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#routes" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="routes_author_full">Авторский маршрут по старому Худжанду (не туристические улочки)</h2>
+      <ul><li data-i18n="coming_soon">Скоро добавим подробности…</li></ul>
+    </div>
+  </section>
+
+  <!-- 4.2 -->
+  <section id="routes-night" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#routes" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="routes_night_full">Ночная прогулка по городу на машине</h2>
+      <ul><li data-i18n="coming_soon">Скоро добавим подробности…</li></ul>
+    </div>
+  </section>
+
+  <!-- 4.3 -->
+  <section id="routes-kayrakkum" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#routes" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="routes_kayrakkum_full">Дневная поездка в Кайраккум</h2>
+      <ul><li data-i18n="coming_soon">Скоро добавим подробности…</li></ul>
+    </div>
+  </section>
+
+  <!-- 4.4 -->
+  <section id="routes-outskirts" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#routes" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="routes_outskirts_full">Окраины города</h2>
+      <ul><li data-i18n="coming_soon">Скоро добавим подробности…</li></ul>
+    </div>
+  </section>
+
+  <!-- 4.5 -->
+  <section id="routes-livecity" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#routes" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="routes_livecity_full">“Живой город”: наблюдение за повседневной жизнью местных жителей</h2>
+      <ul><li data-i18n="coming_soon">Скоро добавим подробности…</li></ul>
+    </div>
+  </section>
+
+  <!-- 4.6 -->
+  <section id="routes-phototour" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#routes" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="routes_phototour_full">Фото-тур с профессиональными или авторскими рекомендациями</h2>
+      <ul><li data-i18n="coming_soon">Скоро добавим подробности…</li></ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="tourist-services" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#home" data-i18n="btn_home">← На главную</a>
+      <a class="btn" href="javascript:history.back()" data-i18n="btn_back">↩ Назад</a>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="tourist_title">Услуги для туристов</h2>
+      <p style="margin:0; opacity:.9;"><span data-i18n="tourist_desc">Выбери услугу — мастер-класс, ужин, гид, транспорт или пакет.</span></p>
+    </div>
+
+    <div class="grid" style="grid-template-columns:repeat(2,1fr);">
+      <a class="card" href="#tourist-masterclass" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="tourist_masterclass_card">Мастер-класс по национальным блюдам</h2></a>
+      <a class="card" href="#tourist-dinner" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="tourist_dinner_card">Ужин в доме местного жителя</h2></a>
+      <a class="card" href="#tourist-guide" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="tourist_guide_card">Персональный гид / хозяин</h2></a>
+      <a class="card" href="#tourist-transport" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="tourist_transport_full">Организация транспортных услуг</h2></a>
+      <a class="card" href="#tourist-allinclusive" style="height:190px; background-image:url('Khujand.png');"><h2 data-i18n="tourist_allinclusive_card">Пакеты “всё включено”</h2></a>
+    </div>
+  </section>
+
+  <!-- 5.1 -->
+  <section id="tourist-masterclass" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#tourist-services" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="tourist_masterclass_full">Мастер-класс по национальным блюдам (плов, манты, самса)</h2>
+      <ul><li data-i18n="coming_soon">Скоро добавим подробности…</li></ul>
+    </div>
+  </section>
+
+  <!-- 5.2 -->
+  <section id="tourist-dinner" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#tourist-services" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="tourist_dinner_full">Ужин в доме местного жителя с колоритом</h2>
+      <ul><li data-i18n="coming_soon">Скоро добавим подробности…</li></ul>
+    </div>
+  </section>
+
+  <!-- 5.3 -->
+  <section id="tourist-guide" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#tourist-services" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="tourist_guide_full">Персональный гид / хозяин для сопровождения</h2>
+      <ul><li data-i18n="coming_soon">Скоро добавим подробности…</li></ul>
+    </div>
+  </section>
+
+  <!-- 5.4 -->
+  <section id="tourist-transport" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#tourist-services" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="tourist_transport_full">Организация транспортных услуг</h2>
+      <ul><li data-i18n="coming_soon">Скоро добавим подробности…</li></ul>
+    </div>
+  </section>
+
+  <!-- 5.5 -->
+  <section id="tourist-allinclusive" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#tourist-services" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="tourist_allinclusive_full">Пакеты “всё включено” (транспорт, экскурсии, еда, фото)</h2>
+      <ul><li data-i18n="coming_soon">Скоро добавим подробности…</li></ul>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section id="gift-store" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#home" data-i18n="btn_home">← На главную</a>
+      <a class="btn" href="javascript:history.back()" data-i18n="btn_back">↩ Назад</a>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="gift_store_title">Магазин подарков</h2>
+      <p style="margin:0; opacity:.9;"><span data-i18n="gift_store_desc">Выберите подарок — откроется описание и цена.</span></p>
+    </div>
+
+    <div id="gift-grid" class="grid" style="grid-template-columns:repeat(2,1fr);"></div>
+  </section>
+
+  <!-- Host subpages -->
+  <section id="host-contacts" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#essentials-host" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="host_contacts_full">Контакты для связи 24/7</h2>
+      <ul><li data-i18n="coming_soon">Скоро добавим подробности…</li></ul>
+    </div>
+  </section>
+
+  <section id="host-booking" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#essentials-host" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="host_booking_full">Настройки бронирования и консультации</h2>
+      <ul><li data-i18n="coming_soon">Скоро добавим подробности…</li></ul>
+    </div>
+  </section>
+
+  <section id="host-advice" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#essentials-host" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="host_advice_full">Советы по маршрутам, лучшему времени посещения достопримечательностей</h2>
+      <ul><li data-i18n="coming_soon">Скоро добавим подробности…</li></ul>
+    </div>
+  </section>
+
+  <section id="host-tips" class="page hidden">
+    <div class="topbar">
+      <a class="btn" href="#essentials-host" data-i18n="btn_back_section">← Назад</a>
+      <a class="btn" href="#home" data-i18n="btn_home_icon">🏠 Главная</a>
+    </div>
+    <div class="section">
+      <h2 data-i18n="host_tips_full">Подсказки “как себя вести и что попробовать”</h2>
+      <ul><li data-i18n="coming_soon">Скоро добавим подробности…</li></ul>
+    </div>
+  </section>
+
+</div>
+
+<!-- MODAL -->
+<div id="placeModal" class="modal" aria-hidden="true">
+  <div class="modal-backdrop" data-modal-close="1"></div>
+  <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <div id="modalHero" class="modal-hero" style="background-image:url('Khujand.png');"></div>
+      <div class="modal-body">
+        <div class="modal-title-row">
+          <h3 id="modalTitle" class="modal-title">—</h3>
+          <button id="modalCloseBtn" class="modal-close" type="button" data-i18n="btn_close">Закрыть</button>
+        </div>
+        <div class="modal-grid">
+          <div>
+            <div id="modalText" class="modal-text">—</div>
+          </div>
+          <div class="qr-box">
+            <img id="modalQr" alt="QR" src="" />
+            <div class="qr-caption" data-i18n="qr_caption">Отсканируйте QR, чтобы открыть локацию</div>
+            <div class="qr-actions">
+              <a id="modalMapBtn" class="pill" href="#" target="_blank" rel="noopener" data-i18n="btn_open_map">Открыть на карте</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ===== i18n =====
+  const I18N = {
+    ru: {
+      doc_title: 'Гид по квартире',
+      hero_welcome: 'Добро пожаловать!',
+      city_name: 'Худжанд',
+      tap_to_start: 'Нажмите',
+      btn_close: 'Закрыть',
+      qr_caption: 'Отсканируйте QR, чтобы открыть локацию',
+      btn_open_map: 'Открыть на карте',
+      journal_modern_hint: 'Нажмите на место, чтобы открыть описание и QR-код локации.',
+
+      btn_home: '← На главную',
+      btn_home_icon: '🏠 Главная',
+      btn_back: '↩ Назад',
+      btn_back_section: '← Назад',
+      btn_back_journal: '← Назад в Журнал',
+
+      home_journal: 'Журнал “Худжанд”',
+      home_essentials: 'Помощь / информация первой необходимости',
+      home_restaurants: 'Рестораны и национальные блюда',
+      home_routes: 'Культурные и исторические маршруты',
+      home_tourist_services: 'Услуги для туристов',
+      home_gift_store: 'Магазин подарков',
+
+      gift_store_title: 'Магазин подарков',
+      gift_store_desc: 'Выберите подарок — откроется описание и цена.',
+
+      essentials_banks: 'Банки, отделения и банкоматы',
+      essentials_sim: 'Сотовые компании и SIM-карты',
+      essentials_taxi: 'Такси и приложения для вызова',
+      essentials_pharmacy: 'Аптеки и экстренные телефоны',
+      essentials_pharmacy_full: 'Аптеки и экстренные телефоны (скорой, полиции)',
+      essentials_host_help: 'Помощь хозяина / личный сервис',
+
+      journal_title: 'Журнал “Худжанд”',
+      journal_desc: 'Выбери направление — современный город или атмосферные старые кварталы.',
+      journal_modern_title: 'Современный Худжанд',
+      journal_old_title: 'Старый Худжанд',
+
+      essentials_title: 'Помощь / информация первой необходимости',
+      essentials_desc: 'Быстрые ответы: деньги, связь, такси, аптеки и полезные точки.',
+
+      restaurants_title: 'Рестораны и национальные блюда',
+      restaurants_desc: 'Выбери раздел — рейтинги, блюда, локальные места или фото/описания.',
+
+      routes_title: 'Культурные и исторические маршруты',
+      routes_desc: 'Выбери маршрут — авторский, ночной, Кайраккум и другие форматы.',
+
+      tourist_title: 'Услуги для туристов',
+      tourist_desc: 'Выбери услугу — мастер-класс, ужин, гид, транспорт или пакет.',
+
+      host_title: 'Помощь хозяина / личный сервис',
+      host_desc: 'Связь 24/7, советы и помощь по любым вопросам.',
+
+      restaurants_rated: 'Рестораны и кафе с рейтингом и меню',
+      restaurants_dishes: 'Национальные блюда',
+      restaurants_local: 'Локальные места вне туристических троп',
+      restaurants_photos: 'Фото и описание блюд',
+
+      routes_author_full: 'Авторский маршрут по старому Худжанду (не туристические улочки)',
+      routes_night_full: 'Ночная прогулка по городу на машине',
+      routes_kayrakkum_full: 'Дневная поездка в Кайраккум',
+      routes_outskirts_full: 'Окраины города',
+      routes_livecity_full: '“Живой город”: наблюдение за повседневной жизнью местных жителей',
+      routes_phototour_full: 'Фото-тур с профессиональными или авторскими рекомендациями',
+
+      tourist_masterclass_full: 'Мастер-класс по национальным блюдам (плов, манты, самса)',
+      tourist_dinner_full: 'Ужин в доме местного жителя с колоритом',
+      tourist_guide_full: 'Персональный гид / хозяин для сопровождения',
+      tourist_transport_full: 'Организация транспортных услуг',
+      tourist_allinclusive_full: 'Пакеты “всё включено” (транспорт, экскурсии, еда, фото)',
+
+      host_contacts_full: 'Контакты для связи 24/7',
+      host_booking_full: 'Настройки бронирования и консультации',
+      host_advice_full: 'Советы по маршрутам, лучшему времени посещения достопримечательностей',
+      host_tips_full: 'Подсказки “как себя вести и что попробовать”',
+
+      restaurants_dishes_full: 'Национальные блюда: плов, манты, самса, шашлык',
+      routes_author_card: 'Авторский маршрут по старому Худжанду',
+      routes_livecity_card: '“Живой город”',
+      routes_phototour_card: 'Фото-тур',
+      tourist_masterclass_card: 'Мастер-класс по национальным блюдам',
+      tourist_dinner_card: 'Ужин в доме местного жителя',
+      tourist_guide_card: 'Персональный гид / хозяин',
+      tourist_allinclusive_card: 'Пакеты “всё включено”',
+      host_advice_card: 'Советы по маршрутам',
+      host_tips_card: 'Подсказки',
+      coming_soon: 'Скоро добавим подробности…',
+
+      field_address: 'Адрес',
+      field_hours: 'Время',
+      field_phone: 'Телефон',
+      btn_map: 'Карта',
+      btn_whatsapp: 'WhatsApp',
+      btn_call: 'Позвонить',
+      btn_copy: 'Копировать',
+      copied: 'Скопировано',
+      btn_buy: 'Купить / Связаться'
+    },
+    en: {
+      doc_title: 'Apartment Guide',
+      hero_welcome: 'Welcome!',
+      city_name: 'Khujand',
+      tap_to_start: 'Tap to start',
+      btn_close: 'Close',
+      qr_caption: 'Scan the QR to open the location',
+      btn_open_map: 'Open in Maps',
+      journal_modern_hint: 'Tap a place to open details and a location QR code.',
+
+      btn_home: '← Home',
+      btn_home_icon: '🏠 Home',
+      btn_back: '↩ Back',
+      btn_back_section: '← Back',
+      btn_back_journal: '← Back to Journal',
+
+      home_journal: 'Journal “Khujand”',
+      home_essentials: 'Essentials / Useful info',
+      home_restaurants: 'Restaurants & national dishes',
+      home_routes: 'Cultural & historical routes',
+      home_tourist_services: 'Tourist services',
+      home_gift_store: 'Gift shop',
+
+      gift_store_title: 'Gift shop',
+      gift_store_desc: 'Choose a gift — you will see details and price.',
+
+      essentials_banks: 'Banks & ATMs',
+      essentials_sim: 'Mobile operators & SIM cards',
+      essentials_taxi: 'Taxis & ride-hailing apps',
+      essentials_pharmacy: 'Pharmacies & emergency numbers',
+      essentials_pharmacy_full: 'Pharmacies & emergency numbers (ambulance, police)',
+      essentials_host_help: 'Host help / personal service',
+
+      journal_title: 'Journal “Khujand”',
+      journal_desc: 'Choose a direction — modern city spots or atmospheric old quarters.',
+      journal_modern_title: 'Modern Khujand',
+      journal_old_title: 'Old Khujand',
+
+      essentials_title: 'Essentials / Useful info',
+      essentials_desc: 'Quick help: money, connectivity, taxis, pharmacies, key spots.',
+
+      restaurants_title: 'Restaurants & national dishes',
+      restaurants_desc: 'Pick a section — ratings, dishes, local spots, or photos/notes.',
+
+      routes_title: 'Cultural & historical routes',
+      routes_desc: 'Pick a route — author’s walk, night drive, Kayrakkum and more.',
+
+      tourist_title: 'Tourist services',
+      tourist_desc: 'Pick a service — masterclass, dinner, guide, transport, or package.',
+
+      host_title: 'Host help / personal service',
+      host_desc: '24/7 contact, tips and help with any questions.',
+
+      restaurants_rated: 'Restaurants & cafes (ratings & menu)',
+      restaurants_dishes: 'National dishes',
+      restaurants_local: 'Local spots off tourist paths',
+      restaurants_photos: 'Food photos & descriptions',
+
+      routes_author_full: 'Author’s route through old Khujand (non-touristic streets)',
+      routes_night_full: 'Night drive around the city',
+      routes_kayrakkum_full: 'Day trip to Kayrakkum',
+      routes_outskirts_full: 'City outskirts',
+      routes_livecity_full: '“Living city”: observing everyday local life',
+      routes_phototour_full: 'Photo tour with professional or author tips',
+
+      tourist_masterclass_full: 'Cooking masterclass (plov, manty, samsa)',
+      tourist_dinner_full: 'Dinner at a local home with authentic vibe',
+      tourist_guide_full: 'Personal guide / host assistance',
+      tourist_transport_full: 'Transport arrangements',
+      tourist_allinclusive_full: 'All-inclusive packages (transport, tours, food, photos)',
+
+      host_contacts_full: '24/7 contact details',
+      host_booking_full: 'Booking settings & consultation',
+      host_advice_full: 'Advice on routes and best visiting times',
+      host_tips_full: 'Tips: how to behave & what to try',
+
+      restaurants_dishes_full: 'National dishes: plov, manty, samsa, shashlik',
+      routes_author_card: 'Author’s route in old Khujand',
+      routes_livecity_card: '“Living city”',
+      routes_phototour_card: 'Photo tour',
+      tourist_masterclass_card: 'Cooking masterclass',
+      tourist_dinner_card: 'Dinner with locals',
+      tourist_guide_card: 'Personal guide / host',
+      tourist_allinclusive_card: 'All-inclusive packages',
+      host_advice_card: 'Route advice',
+      host_tips_card: 'Tips',
+      coming_soon: 'Details coming soon…',
+
+      field_address: 'Address',
+      field_hours: 'Hours',
+      field_phone: 'Phone',
+      btn_map: 'Map',
+      btn_whatsapp: 'WhatsApp',
+      btn_call: 'Call',
+      btn_copy: 'Copy',
+      copied: 'Copied',
+      btn_buy: 'Buy / Contact'
+    }
+  };
+
+  // ===== Helpers =====
+  function getSavedLang() {
+    const saved = localStorage.getItem('lang');
+    if (saved && (saved === 'ru' || saved === 'en')) return saved;
+    const nav = (navigator.language || 'ru').toLowerCase();
+    return nav.startsWith('en') ? 'en' : 'ru';
+  }
+
+  function buildMapUrl(q) {
+    const query = encodeURIComponent(q || 'Khujand');
+    return 'https://www.google.com/maps/search/?api=1&query=' + query;
+  }
+
+  function i18nKey(lang, key, fallback) {
+    return (I18N[lang] && I18N[lang][key]) || fallback || '';
+  }
+
+  function normalizePhone(p) {
+    return String(p || '').replace(/\s|\(|\)|-/g, '');
+  }
+
+  async function copyText(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      const ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+      return ok;
+    }
+  }
+
+  // ===== Journal spots (demo data) =====
+  const MODERN_SPOTS = [
+    {
+      id: 'modern-1',
+      title_ru: 'Площадь (пример)',
+      title_en: 'Main square (example)',
+      img: 'Khujand.png',
+      story_ru: 'Это пример карточки для современного Худжанда. Здесь будет короткая история: что это за место, почему оно важно, когда лучше приходить и что посмотреть рядом. Текст держим до 10 предложений. Добавь 2–3 факта и один совет гостю — так читается лучше.',
+      story_en: 'This is an example card for Modern Khujand. Here you will put a short story: what this place is, why it matters, the best time to visit, and what to see nearby. Keep it up to 10 sentences. Add 2–3 facts and one tip — it reads better.',
+      mapUrl: buildMapUrl('Khujand main square')
+    },
+    {
+      id: 'modern-2',
+      title_ru: 'Набережная (пример)',
+      title_en: 'Riverwalk (example)',
+      img: 'Khujand.png',
+      story_ru: 'Ещё один пример. Тут можно описать прогулочную зону: виды, кафе, вечерние огни, семейная атмосфера. Укажи, сколько времени заложить на прогулку и что взять с собой (например, ветровку вечером).',
+      story_en: 'Another example. Describe the promenade: views, cafés, evening lights, and a family-friendly vibe. Mention how much time to plan for the walk and what to bring (for example, a light jacket in the evening).',
+      mapUrl: buildMapUrl('Khujand riverwalk')
+    }
+  ];
+
+  const OLD_SPOTS = [
+    {
+      id: 'old-1',
+      title_ru: 'Старая улочка (пример)',
+      title_en: 'Old street (example)',
+      img: 'Khujand.png',
+      story_ru: 'Пример места для Старого Худжанда. Здесь можно описать атмосферу узких улиц, глинобитные стены, резные двери и жизнь соседей. Добавь исторический факт и короткий совет гостю — например, приходить утром для мягкого света.',
+      story_en: 'Example place for Old Khujand. Describe narrow streets, clay walls, carved doors, and everyday neighborhood life. Add one historical fact and a short tip — for example, come in the morning for soft light.',
+      mapUrl: buildMapUrl('Old Khujand street')
+    },
+    {
+      id: 'old-2',
+      title_ru: 'Чайхана (пример)',
+      title_en: 'Teahouse (example)',
+      img: 'Khujand.png',
+      story_ru: 'Пример атмосферной чайханы. Опиши традиции чаепития, интерьер и кто обычно сюда приходит. Можно добавить рекомендацию, какой чай попробовать и сколько времени провести.',
+      story_en: 'Example traditional teahouse. Describe tea traditions, interior details, and who usually comes here. Add a recommendation on which tea to try and how long to stay.',
+      mapUrl: buildMapUrl('Old Khujand teahouse')
+    }
+  ];
+
+  // ===== Gift shop (demo data) =====
+  const GIFTS = [
+    { id:'gift-1', title_ru:'Сузани (ручная вышивка)', title_en:'Suzani (hand embroidery)', img:'Khujand.png',
+      desc_ru:'Традиционная вышивка. Хороший подарок для дома. Можно повесить на стену или использовать как покрывало.',
+      desc_en:'Traditional embroidery. Great home gift. Can be used as wall decor or a cover.',
+      price_ru:'450 сомони', price_en:'450 TJS', buyUrl:'https://wa.me/992000000000'
+    },
+    { id:'gift-2', title_ru:'Керамическая тарелка', title_en:'Ceramic plate', img:'Khujand.png',
+      desc_ru:'Ручная роспись, орнаменты Согда. Упаковка в подарок доступна.',
+      desc_en:'Hand-painted, Sogdian patterns. Gift wrapping available.',
+      price_ru:'120 сомони', price_en:'120 TJS', buyUrl:'https://wa.me/992000000000'
+    },
+    { id:'gift-3', title_ru:'Набор специй для плова', title_en:'Plov spices set', img:'Khujand.png',
+      desc_ru:'Ароматный набор специй и зиры. Отличный маленький подарок из поездки.',
+      desc_en:'A fragrant set of spices and cumin. A great small travel gift.',
+      price_ru:'35 сомони', price_en:'35 TJS', buyUrl:'https://wa.me/992000000000'
+    },
+    { id:'gift-4', title_ru:'Сухофрукты (набор)', title_en:'Dried fruits (set)', img:'Khujand.png',
+      desc_ru:'Курага, изюм, орехи. Можно сделать наборы разного размера.',
+      desc_en:'Apricots, raisins, nuts. Sets of different sizes available.',
+      price_ru:'80 сомони', price_en:'80 TJS', buyUrl:'https://wa.me/992000000000'
+    }
+  ];
+
+  function allSpots(){ return MODERN_SPOTS.concat(OLD_SPOTS); }
+  function getSpotTitle(spot, lang){ return lang === 'en' ? (spot.title_en || spot.title_ru) : (spot.title_ru || spot.title_en); }
+  function getSpotStory(spot, lang){ return lang === 'en' ? (spot.story_en || spot.story_ru) : (spot.story_ru || spot.story_en); }
+  function qrUrl(data){ return 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(data); }
+
+  function getGiftTitle(g, lang){ return lang === 'en' ? (g.title_en || g.title_ru) : (g.title_ru || g.title_en); }
+  function getGiftDesc(g, lang){ return lang === 'en' ? (g.desc_en || g.desc_ru) : (g.desc_ru || g.desc_en); }
+  function getGiftPrice(g, lang){ return lang === 'en' ? (g.price_en || g.price_ru) : (g.price_ru || g.price_en); }
+  function findGiftById(id){ return GIFTS.find(x => x.id === id) || null; }
+
+  // ===== Modal =====
+  let modalState = { open:false, spotId:null, giftId:null };
+
+  function findSpotById(spotId){ return allSpots().find(s => s.id === spotId) || null; }
+
+  function openPlaceModal(spotId){
+    const spot = findSpotById(spotId);
+    if (!spot) return;
+    const lang = getSavedLang();
+
+    const modal = document.getElementById('placeModal');
+    const hero = document.getElementById('modalHero');
+    const title = document.getElementById('modalTitle');
+    const text = document.getElementById('modalText');
+    const qr = document.getElementById('modalQr');
+    const mapBtn = document.getElementById('modalMapBtn');
+
+    if (hero) hero.style.backgroundImage = "url('" + (spot.img || 'Khujand.png') + "')";
+    if (title) title.textContent = getSpotTitle(spot, lang) || '—';
+    if (text) text.textContent = getSpotStory(spot, lang) || '';
+
+    const mapUrl = spot.mapUrl || buildMapUrl(getSpotTitle(spot, 'en') || 'Khujand');
+    if (mapBtn) {
+      mapBtn.href = mapUrl;
+      mapBtn.textContent = i18nKey(lang, 'btn_open_map', 'Open in Maps');
+    }
+    if (qr) qr.src = qrUrl(mapUrl);
+
+    modalState = { open:true, spotId, giftId:null };
+
+    if (modal) {
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      const closeBtn = document.getElementById('modalCloseBtn');
+      if (closeBtn) closeBtn.focus();
+    }
+  }
+
+  function openGiftModal(giftId){
+    const g = findGiftById(giftId);
+    if (!g) return;
+    const lang = getSavedLang();
+
+    const modal = document.getElementById('placeModal');
+    const hero = document.getElementById('modalHero');
+    const title = document.getElementById('modalTitle');
+    const text = document.getElementById('modalText');
+    const qr = document.getElementById('modalQr');
+    const mapBtn = document.getElementById('modalMapBtn');
+
+    if (hero) hero.style.backgroundImage = "url('" + (g.img || 'Khujand.png') + "')";
+
+    const t = getGiftTitle(g, lang) || '—';
+    const d = getGiftDesc(g, lang) || '';
+    const p = getGiftPrice(g, lang) || '';
+
+    if (title) title.textContent = t;
+
+    if (text) {
+      text.innerHTML = '';
+      const priceEl = document.createElement('p');
+      priceEl.className = 'modal-price';
+      priceEl.textContent = p;
+
+      const descEl = document.createElement('p');
+      descEl.className = 'modal-text';
+      descEl.textContent = d;
+
+      text.appendChild(priceEl);
+      text.appendChild(descEl);
+    }
+
+    const url = g.buyUrl || buildMapUrl('Khujand souvenirs');
+    if (mapBtn) {
+      mapBtn.href = url;
+      mapBtn.textContent = i18nKey(lang, 'btn_buy', 'Buy / Contact');
+    }
+    if (qr) qr.src = qrUrl(url);
+
+    modalState = { open:true, spotId:null, giftId };
+
+    if (modal) {
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      const closeBtn = document.getElementById('modalCloseBtn');
+      if (closeBtn) closeBtn.focus();
+    }
+  }
+
+  function closePlaceModal(){
+    const modal = document.getElementById('placeModal');
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    modalState = { open:false, spotId:null, giftId:null };
+  }
+
+  // ===== Place cards (directory) =====
+  const CONTENT = {
+    'essentials-banks': [
+      {
+        kind: 'place',
+        name_ru: 'Банк / банкомат (пример)',
+        name_en: 'Bank / ATM (example)',
+        desc_ru: 'Добавь сюда реальные банки и банкоматы рядом с квартирой.',
+        desc_en: 'Add real banks/ATMs near the apartment here.',
+        address: 'Худжанд, пример адреса',
+        hours: '09:00–18:00',
+        phone: '+992 00 000 0000',
+        whatsapp: '+992000000000',
+        mapQuery: 'Khujand bank ATM'
+      }
+    ],
+    'essentials-sim': [
+      {
+        kind: 'place',
+        name_ru: 'Офис мобильного оператора (пример)',
+        name_en: 'Mobile operator office (example)',
+        desc_ru: 'Где купить SIM-карту и подключить интернет.',
+        desc_en: 'Where to buy a SIM card and get mobile data.',
+        address: 'Худжанд, пример адреса',
+        hours: '10:00–19:00',
+        phone: '+992 00 000 0000',
+        whatsapp: '+992000000000',
+        mapQuery: 'Khujand SIM card'
+      }
+    ],
+    'restaurants-rated': [
+      {
+        kind: 'place',
+        name_ru: 'Ресторан (пример)',
+        name_en: 'Restaurant (example)',
+        desc_ru: 'Плов, манты, шашлык. Средний чек: ...',
+        desc_en: 'Plov, manty, shashlik. Average bill: ...',
+        address: 'Худжанд, пример адреса',
+        hours: '11:00–23:00',
+        phone: '+992 00 000 0000',
+        whatsapp: '+992000000000',
+        mapQuery: 'Khujand restaurant'
+      }
+    ],
+    'host-contacts': [
+      {
+        kind: 'place',
+        name_ru: 'Хозяин / связь 24/7',
+        name_en: 'Host / 24/7 contact',
+        desc_ru: 'Пиши или звони в любое время.',
+        desc_en: 'Message or call anytime.',
+        phone: '+992 00 000 0000',
+        whatsapp: '+992000000000'
+      }
+    ]
+  };
+
+  function pickLangText(item, lang, base) {
+    if (base === 'name') return (lang === 'en' ? item.name_en : item.name_ru) || item.name_ru || item.name_en || '';
+    if (base === 'desc') return (lang === 'en' ? item.desc_en : item.desc_ru) || item.desc_ru || item.desc_en || '';
+    return '';
+  }
+
+  function createPlaceCard(item, lang) {
+    const name = pickLangText(item, lang, 'name');
+    const desc = pickLangText(item, lang, 'desc');
+
+    const card = document.createElement('div');
+    card.className = 'place-card';
+
+    const head = document.createElement('div');
+    head.className = 'place-head';
+
+    const left = document.createElement('div');
+    const h = document.createElement('div');
+    h.className = 'place-title';
+    h.textContent = name || '—';
+
+    const p = document.createElement('div');
+    p.className = 'place-sub';
+    p.textContent = desc || '';
+
+    left.appendChild(h);
+    if (desc) left.appendChild(p);
+
+    head.appendChild(left);
+    card.appendChild(head);
+
+    const meta = document.createElement('div');
+    meta.className = 'place-meta';
+
+    const addRow = (k, v) => {
+      if (!v) return;
+      const row = document.createElement('div');
+      row.className = 'meta-row';
+      const kk = document.createElement('div');
+      kk.className = 'meta-k';
+      kk.textContent = k;
+      const vv = document.createElement('div');
+      vv.textContent = v;
+      row.appendChild(kk);
+      row.appendChild(vv);
+      meta.appendChild(row);
+    };
+
+    addRow(i18nKey(lang, 'field_address', 'Address'), item.address);
+    addRow(i18nKey(lang, 'field_hours', 'Hours'), item.hours);
+    addRow(i18nKey(lang, 'field_phone', 'Phone'), item.phone);
+
+    if (meta.childElementCount) card.appendChild(meta);
+
+    const actions = document.createElement('div');
+    actions.className = 'place-actions';
+
+    const phone = normalizePhone(item.phone);
+    const whatsapp = normalizePhone(item.whatsapp);
+
+    if (item.mapQuery || item.address) {
+      const a = document.createElement('a');
+      a.className = 'pill';
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.href = buildMapUrl(item.mapQuery || item.address);
+      a.textContent = i18nKey(lang, 'btn_map', 'Map');
+      actions.appendChild(a);
+    }
+
+    if (whatsapp) {
+      const wa = whatsapp.startsWith('+') ? whatsapp.slice(1) : whatsapp;
+      const a = document.createElement('a');
+      a.className = 'pill';
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.href = 'https://wa.me/' + wa;
+      a.textContent = i18nKey(lang, 'btn_whatsapp', 'WhatsApp');
+      actions.appendChild(a);
+    }
+
+    if (phone) {
+      const a = document.createElement('a');
+      a.className = 'pill';
+      a.href = 'tel:' + phone;
+      a.textContent = i18nKey(lang, 'btn_call', 'Call');
+      actions.appendChild(a);
+
+      const b = document.createElement('button');
+      b.className = 'pill';
+      b.type = 'button';
+      b.textContent = i18nKey(lang, 'btn_copy', 'Copy');
+      b.addEventListener('click', async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const ok = await copyText(item.phone || '');
+        const old = b.textContent;
+        if (ok) b.textContent = i18nKey(lang, 'copied', 'Copied');
+        setTimeout(() => (b.textContent = old), 900);
+      });
+      actions.appendChild(b);
+    }
+
+    if (actions.childElementCount) card.appendChild(actions);
+    return card;
+  }
+
+  function renderPageContent(pageId) {
+    const lang = getSavedLang();
+    const items = CONTENT[pageId];
+    if (!items || !items.length) return;
+
+    const page = document.getElementById(pageId);
+    if (!page) return;
+
+    const section = page.querySelector('.section');
+    if (!section) return;
+
+    const ul = section.querySelector('ul');
+    if (ul) ul.remove();
+
+    const existing = section.querySelector('.places');
+    if (existing) existing.remove();
+
+    const wrap = document.createElement('div');
+    wrap.className = 'places';
+    items.forEach(it => wrap.appendChild(createPlaceCard(it, lang)));
+    section.appendChild(wrap);
+  }
+
+  // ===== Page titles =====
+  const PAGE_TITLES = {
+    ru: {
+      home: 'Добро пожаловать!',
+      journal: 'Журнал “Худжанд”',
+      'journal-modern': 'Современный Худжанд',
+      'journal-old': 'Старый Худжанд',
+      essentials: 'Помощь / информация первой необходимости',
+      'essentials-banks': 'Банки, отделения и банкоматы',
+      'essentials-exchange': 'Обмен валют',
+      'essentials-sim': 'Сотовые компании и SIM-карты',
+      'essentials-taxi': 'Такси и приложения для вызова',
+      'essentials-pharmacy': 'Аптеки и экстренные телефоны',
+      'essentials-host': 'Помощь хозяина / личный сервис',
+      restaurants: 'Рестораны и национальные блюда',
+      'restaurants-rated': 'Рестораны и кафе с рейтингом и меню',
+      'restaurants-dishes': 'Национальные блюда',
+      'restaurants-local': 'Локальные места',
+      'restaurants-photos': 'Фото и описание блюд',
+      routes: 'Культурные и исторические маршруты',
+      'routes-author': 'Авторский маршрут',
+      'routes-night': 'Ночная прогулка',
+      'routes-kayrakkum': 'Поездка в Кайраккум',
+      'routes-outskirts': 'Окраины города',
+      'routes-livecity': 'Живой город',
+      'routes-phototour': 'Фото-тур',
+      'tourist-services': 'Услуги для туристов',
+      'tourist-masterclass': 'Мастер-класс',
+      'tourist-dinner': 'Ужин в доме местного жителя',
+      'tourist-guide': 'Персональный гид / хозяин',
+      'tourist-transport': 'Транспортные услуги',
+      'tourist-allinclusive': 'Пакеты “всё включено”',
+      'gift-store': 'Магазин подарков',
+      'host-contacts': 'Контакты 24/7',
+      'host-booking': 'Бронирование и консультации',
+      'host-advice': 'Советы по маршрутам',
+      'host-tips': 'Подсказки'
+    },
+    en: {
+      home: 'Welcome!',
+      journal: 'Journal “Khujand”',
+      'journal-modern': 'Modern Khujand',
+      'journal-old': 'Old Khujand',
+      essentials: 'Essentials / Useful info',
+      'essentials-banks': 'Banks & ATMs',
+      'essentials-exchange': 'Currency exchange',
+      'essentials-sim': 'Mobile operators & SIM cards',
+      'essentials-taxi': 'Taxis & ride-hailing apps',
+      'essentials-pharmacy': 'Pharmacies & emergency numbers',
+      'essentials-host': 'Host help / personal service',
+      restaurants: 'Restaurants & national dishes',
+      'restaurants-rated': 'Restaurants & cafes (ratings & menu)',
+      'restaurants-dishes': 'National dishes',
+      'restaurants-local': 'Local spots',
+      'restaurants-photos': 'Photos & descriptions',
+      routes: 'Cultural & historical routes',
+      'routes-author': 'Author’s route',
+      'routes-night': 'Night drive',
+      'routes-kayrakkum': 'Day trip to Kayrakkum',
+      'routes-outskirts': 'City outskirts',
+      'routes-livecity': '“Living city”',
+      'routes-phototour': 'Photo tour',
+      'tourist-services': 'Tourist services',
+      'tourist-masterclass': 'Cooking masterclass',
+      'tourist-dinner': 'Dinner with locals',
+      'tourist-guide': 'Personal guide / host',
+      'tourist-transport': 'Transport arrangements',
+      'tourist-allinclusive': 'All-inclusive packages',
+      'gift-store': 'Gift shop',
+      'host-contacts': '24/7 contacts',
+      'host-booking': 'Booking help & consultation',
+      'host-advice': 'Route advice',
+      'host-tips': 'Tips'
+    }
+  };
+
+  // ===== Hero backgrounds =====
+  const heroBgMap = {
+    home: "url('Khujand.png')",
+    journal: "url('Khujand.png')",
+    'journal-modern': "url('Khujand.png')",
+    'journal-old': "url('Khujand.png')",
+    essentials: "url('Khujand.png')",
+    'essentials-banks': "url('Khujand.png')",
+    'essentials-exchange': "url('Khujand.png')",
+    'essentials-sim': "url('Khujand.png')",
+    'essentials-taxi': "url('Khujand.png')",
+    'essentials-pharmacy': "url('Khujand.png')",
+    'essentials-host': "url('Khujand.png')",
+    restaurants: "url('Khujand.png')",
+    'restaurants-rated': "url('Khujand.png')",
+    'restaurants-dishes': "url('Khujand.png')",
+    'restaurants-local': "url('Khujand.png')",
+    'restaurants-photos': "url('Khujand.png')",
+    routes: "url('Khujand.png')",
+    'routes-author': "url('Khujand.png')",
+    'routes-night': "url('Khujand.png')",
+    'routes-kayrakkum': "url('Khujand.png')",
+    'routes-outskirts': "url('Khujand.png')",
+    'routes-livecity': "url('Khujand.png')",
+    'routes-phototour': "url('Khujand.png')",
+    'tourist-services': "url('Khujand.png')",
+    'tourist-masterclass': "url('Khujand.png')",
+    'tourist-dinner': "url('Khujand.png')",
+    'tourist-guide': "url('Khujand.png')",
+    'tourist-transport': "url('Khujand.png')",
+    'tourist-allinclusive': "url('Khujand.png')",
+    'gift-store': "url('Khujand.png')",
+    'host-contacts': "url('Khujand.png')",
+    'host-booking': "url('Khujand.png')",
+    'host-advice': "url('Khujand.png')",
+    'host-tips': "url('Khujand.png')"
+  };
+
+  // ===== Render grids =====
+  function renderModernSpots(){
+    const grid = document.getElementById('modern-grid');
+    if (!grid) return;
+    const lang = getSavedLang();
+    grid.innerHTML = '';
+    MODERN_SPOTS.forEach(spot => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'card spot-card';
+      btn.style.height = '190px';
+      btn.style.backgroundImage = "url('" + (spot.img || 'Khujand.png') + "')";
+      const h2 = document.createElement('h2');
+      h2.textContent = getSpotTitle(spot, lang);
+      btn.appendChild(h2);
+      btn.addEventListener('click', () => openPlaceModal(spot.id));
+      grid.appendChild(btn);
+    });
+  }
+
+  function renderOldSpots(){
+    const grid = document.getElementById('old-grid');
+    if (!grid) return;
+    const lang = getSavedLang();
+    grid.innerHTML = '';
+    OLD_SPOTS.forEach(spot => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'card spot-card';
+      btn.style.height = '190px';
+      btn.style.backgroundImage = "url('" + (spot.img || 'Khujand.png') + "')";
+      const h2 = document.createElement('h2');
+      h2.textContent = getSpotTitle(spot, lang);
+      btn.appendChild(h2);
+      btn.addEventListener('click', () => openPlaceModal(spot.id));
+      grid.appendChild(btn);
+    });
+  }
+
+  function renderGifts(){
+    const grid = document.getElementById('gift-grid');
+    if (!grid) return;
+    const lang = getSavedLang();
+    grid.innerHTML = '';
+
+    GIFTS.forEach(g => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'card spot-card';
+      btn.style.height = '190px';
+      btn.style.backgroundImage = "url('" + (g.img || 'Khujand.png') + "')";
+
+      const h2 = document.createElement('h2');
+      h2.textContent = getGiftTitle(g, lang);
+      btn.appendChild(h2);
+
+      btn.addEventListener('click', () => openGiftModal(g.id));
+      grid.appendChild(btn);
+    });
+  }
+
+  // ===== Language apply (instant) =====
+  function applyLangInstant(lang){
+    if (!I18N[lang]) return;
+
+    localStorage.setItem('lang', lang);
+    document.documentElement.lang = lang;
+
+    const titleEl = document.querySelector('[data-i18n-title="doc_title"]');
+    if (titleEl) titleEl.textContent = I18N[lang].doc_title;
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const value = I18N[lang][key];
+      if (typeof value === 'string') el.textContent = value;
+    });
+
+    // toggle buttons state (both places)
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const isActive = btn.getAttribute('data-lang') === lang;
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    // rerender dynamic current page
+    const current = (location.hash || '#home').slice(1) || 'home';
+    if (current && current !== 'splash') {
+      renderPageContent(current);
+      if (current === 'journal-modern') renderModernSpots();
+      if (current === 'journal-old') renderOldSpots();
+      if (current === 'gift-store') renderGifts();
+    }
+
+    // if modal open, refresh text by language
+    if (modalState && modalState.open) {
+      if (modalState.spotId) openPlaceModal(modalState.spotId);
+      if (modalState.giftId) openGiftModal(modalState.giftId);
+    }
+  }
+
+  // ===== Navigation + language (smooth) =====
+  let langSwitchTimer = null;
+
+  function setLang(lang) {
+    if (!I18N[lang]) return;
+
+    if (langSwitchTimer) clearTimeout(langSwitchTimer);
+
+    // fade out
+    document.body.classList.add('lang-fade');
+
+    langSwitchTimer = setTimeout(() => {
+      applyLangInstant(lang);
+      showPage(); // update hero title/bg, render, etc.
+
+      // fade in
+      requestAnimationFrame(() => {
+        document.body.classList.remove('lang-fade');
+      });
+    }, 170);
+  }
+
+  function showPage(id) {
+    const lang = getSavedLang();
+    const pageId = id || (location.hash || '#home').slice(1) || 'home';
+
+    if (pageId === 'splash') {
+      document.body.classList.add('splash-active');
+      document.body.classList.remove('splash-closing');
+      const splash = document.getElementById('splash');
+      if (splash) splash.classList.remove('closing');
+      const hint = document.querySelector('.splash-hint');
+      if (hint) hint.textContent = I18N[lang].tap_to_start || 'Tap to start';
+      return;
+    }
+
+    document.body.classList.remove('splash-active');
+
+    document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+    (document.getElementById(pageId) || document.getElementById('home')).classList.remove('hidden');
+
+    const h1 = document.querySelector('.hero h1');
+    const pageTitle = (PAGE_TITLES[lang] && PAGE_TITLES[lang][pageId]) || (PAGE_TITLES[lang] && PAGE_TITLES[lang].home) || 'Welcome!';
+    if (h1) h1.textContent = pageTitle;
+
+    const hero = document.querySelector('.hero');
+    if (hero) hero.style.setProperty('--hero-bg', heroBgMap[pageId] || heroBgMap.home);
+
+    renderPageContent(pageId);
+    if (pageId === 'journal-modern') renderModernSpots();
+    if (pageId === 'journal-old') renderOldSpots();
+    if (pageId === 'gift-store') renderGifts();
+
+    const active = document.getElementById(pageId) || document.getElementById('home');
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    requestAnimationFrame(() => { if (active) active.classList.add('active'); });
+
+    window.scrollTo(0, 0);
+  }
+
+  function handleInternalHashClick(e) {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    if (a.getAttribute('href').startsWith('javascript:')) return;
+    e.preventDefault();
+    const target = a.getAttribute('href');
+    history.pushState(null, '', target);
+    showPage(target.slice(1));
+  }
+
+  // ===== Events =====
+  document.addEventListener('click', handleInternalHashClick);
+  window.addEventListener('hashchange', () => showPage());
+  window.addEventListener('popstate', () => showPage());
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.getAttribute('data-lang')));
+  });
+
+  // modal events
+  const modalEl = document.getElementById('placeModal');
+  if (modalEl) {
+    modalEl.addEventListener('click', (e) => {
+      if (e.target && e.target.getAttribute && e.target.getAttribute('data-modal-close') === '1') {
+        closePlaceModal();
+      }
+    });
+  }
+
+  const modalCloseBtn = document.getElementById('modalCloseBtn');
+  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closePlaceModal);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closePlaceModal();
+  });
+
+  // splash start
+  let targetAfterSplash = '#home';
+
+  function enterApp() {
+    const target = targetAfterSplash || '#home';
+    const targetId = target.slice(1);
+    history.pushState(null, '', target);
+    showPage(targetId);
+  }
+
+  function closeSplashWithCurtain() {
+    const lang = getSavedLang();
+    const hint = document.querySelector('.splash-hint');
+    if (hint) hint.textContent = I18N[lang].tap_to_start || 'Tap to start';
+
+    document.body.classList.remove('splash-active');
+    document.body.classList.add('splash-closing');
+
+    const splash = document.getElementById('splash');
+    if (!splash) {
+      document.body.classList.remove('splash-closing');
+      enterApp();
+      return;
+    }
+
+    splash.classList.add('closing');
+
+    const onEnd = (e) => {
+      if (e.propertyName !== 'transform') return;
+      splash.removeEventListener('transitionend', onEnd);
+      splash.classList.remove('closing');
+      document.body.classList.remove('splash-closing');
+      enterApp();
+    };
+
+    splash.addEventListener('transitionend', onEnd);
+  }
+
+  const splashEl = document.getElementById('splash');
+  if (splashEl) {
+    splashEl.addEventListener('click', (e) => {
+      if (e.target.closest('.lang-switch')) return;
+      closeSplashWithCurtain();
+    });
+
+    splashEl.addEventListener('keydown', (e) => {
+      if (e.target && e.target.closest && e.target.closest('.lang-switch')) return;
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        closeSplashWithCurtain();
+      }
+    });
+  }
+
+  // ===== Tests (console.assert) =====
+  const requiredPages = [
+    'home','journal','journal-modern','journal-old',
+    'essentials','essentials-banks','essentials-exchange','essentials-sim','essentials-taxi','essentials-pharmacy','essentials-host',
+    'restaurants','restaurants-rated','restaurants-dishes','restaurants-local','restaurants-photos',
+    'routes','routes-author','routes-night','routes-kayrakkum','routes-outskirts','routes-livecity','routes-phototour',
+    'tourist-services','tourist-masterclass','tourist-dinner','tourist-guide','tourist-transport','tourist-allinclusive',
+    'gift-store',
+    'host-contacts','host-booking','host-advice','host-tips'
+  ];
+
+  ['ru','en'].forEach(l => {
+    console.assert(requiredPages.every(k => k in PAGE_TITLES[l]), `PAGE_TITLES(${l}): missing keys`);
+  });
+  console.assert(requiredPages.every(k => k in heroBgMap), 'heroBgMap: missing keys');
+
+  Object.entries(I18N).forEach(([l, dict]) => {
+    Object.entries(dict).forEach(([k, v]) => {
+      console.assert(typeof v === 'string' && v.length > 0, `I18N(${l}): empty value for ${k}`);
+    });
+  });
+
+  // spot ids must be unique across modern+old
+  const ids = allSpots().map(s => s.id);
+  console.assert(new Set(ids).size === ids.length, 'Spot ids must be unique');
+
+  // gift ids must be unique
+  const giftIds = GIFTS.map(g => g.id);
+  console.assert(new Set(giftIds).size === giftIds.length, 'Gift ids must be unique');
+
+  // modal must find both modern and old spots
+  console.assert(findSpotById('modern-1') !== null, 'findSpotById: modern spot missing');
+  console.assert(findSpotById('old-1') !== null, 'findSpotById: old spot missing');
+
+  // init (без "мигания" — применяем язык мгновенно)
+  applyLangInstant(getSavedLang());
+
+  const currentHash = (location.hash && location.hash.length > 1) ? location.hash : '#home';
+  targetAfterSplash = (currentHash !== '#splash') ? currentHash : '#home';
+
+  history.replaceState(null, '', '#splash');
+  showPage('splash');
+</script>
+
+</body>
+</html>
