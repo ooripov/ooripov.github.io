@@ -8,8 +8,8 @@ window.I18N = {
     btn_home: '← На главную',
     btn_home_icon: '← На главную',
     btn_back: '↩ Назад',
-    btn_back_section: '← Назад',
-    btn_back_journal: '← Назад в Журнал',
+    btn_back_section: '↩ Назад',
+    btn_back_journal: '↩ Назад',
     btn_close: 'Закрыть',
     qr_caption: 'Отсканируйте QR, чтобы открыть локацию',
     btn_open_map: 'Открыть на карте',
@@ -99,10 +99,10 @@ intercity_tips: "Советы",
     tap_to_start: 'Tap to start',
 
     btn_home: '← Home',
-    btn_home_icon: '←Home',
+    btn_home_icon: '← Home',
     btn_back: '↩ Back',
-    btn_back_section: '← Back',
-    btn_back_journal: '← Back to Journal',
+    btn_back_section: '↩ Back',
+    btn_back_journal: '↩ Back',
     btn_close: 'Close',
     qr_caption: 'Scan the QR to open the location',
     btn_open_map: 'Open in Maps',
@@ -145,10 +145,10 @@ intercity_tips: "Советы",
     tourist_guide_card: 'Personal guide / host',
     tourist_transport_full: 'Transport arrangements',
     tourist_allinclusive_card: 'All-inclusive packages',
-
+    
     gift_store_title: 'Gift shop',
     gift_store_desc: 'Choose a gift — you will see details and price.',
-
+    
     essentials_title: 'Essentials / Useful info',
     essentials_desc: 'Quick help: money, connectivity, taxis, pharmacies, key spots.',
     essentials_host_help: 'Host help / personal service',
@@ -157,18 +157,20 @@ intercity_tips: "Советы",
     essentials_taxi: 'Taxis & ride-hailing apps',
     essentials_pharmacy_full: 'Pharmacies & emergency numbers (ambulance, police)',
     essentials_roads: 'Info on intercity travel',
+    
     host_title: 'Host help / personal service',
     host_desc: '24/7 contact, tips and help with any questions.',
     host_contacts_full: '24/7 contact details',
     host_booking_full: 'Booking settings & consultation',
     host_advice_full: 'Advice on routes and best visiting times',
     host_tips_full: 'Tips: how to behave & what to try',
-
+    
     coming_soon: 'Details coming soon…',
-
+    
     field_address: 'Address',
     field_hours: 'Hours',
     field_phone: 'Phone',
+    
     btn_map: 'Map',
     btn_whatsapp: 'WhatsApp',
     btn_call: 'Call',
@@ -176,13 +178,12 @@ intercity_tips: "Советы",
     copied: 'Copied',
     footer_author: "Developed by Olimjon Oripov (apartment host)",
     essentials_intercity: "How to travel between cities",
+
 intercity_title: "Routes",
 intercity_desc: "Tap a route to see price, time and tips.",
 intercity_price: "Price",
 intercity_time: "Travel time",
 intercity_where: "Where to depart",
 intercity_tips: "Tips",
-
-
   }
 };

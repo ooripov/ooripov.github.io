@@ -4,7 +4,6 @@ function buildMapUrl(q) {
   return 'https://www.google.com/maps/search/?api=1&query=' + query;
 }
 
-// Journal demo data
 window.MODERN_SPOTS = [
   {
     id: 'modern-1',
@@ -167,7 +166,7 @@ window.OLD_SPOTS = [
   },
 ];
 
-// Gift shop demo data
+
 window.GIFTS = [
   {
     id: 'gift-1',
@@ -180,6 +179,50 @@ window.GIFTS = [
     price_en: '400 TJS',
     buyUrl: 'https://wa.me/992000000000'
   },
+  {
+    id: 'gift-5',
+    title_ru: 'Шарфы и платки из атласа и адраса',
+    title_en: 'Scarves and shawls from silk and brocade',
+    img: '../assets/img/shawls.webp',
+    desc_ru: 'Ручная работа, традиционные узоры.',
+    desc_en: 'Handmade, traditional patterns.',
+    price_ru: '100 сомони',
+    price_en: '100 TJS',
+    buyUrl: 'https://wa.me/992000000000'
+  },
+  {
+    id: 'gift-6',
+    title_ru: 'Декоративные наволочки в этно-стиле',
+    title_en: 'Etno-style decorative pillowcases',
+    img: '../assets/img/pillowcases.jpg',
+    desc_ru: 'Ручная работа, традиционные узоры.',
+    desc_en: 'Handmade, traditional patterns.',
+    price_ru: '100 сомони',
+    price_en: '100 TJS',
+    buyUrl: 'https://wa.me/992000000000'
+  },
+  {
+    id: 'gift-7',
+    title_ru: 'Тюбетейки (национальные шапки)',
+    title_en: 'Etno-style decorative caps',
+    img: '../assets/img/tubeteyki.jpg',
+    desc_ru: 'Ручная работа, традиционные узоры.',
+    desc_en: 'Handmade, traditional patterns.',
+    price_ru: '100 сомони',
+    price_en: '100 TJS',
+    buyUrl: 'https://wa.me/992000000000'
+  },
+    {
+      id: 'gift-8',
+      title_ru: 'Браслеты и украшения в этно-стиле',
+      title_en: 'Etno-style decorative bracelets and jewelry',
+      img: '../assets/img/bracelets.jpg',
+      desc_ru: 'Ручная работа, традиционные узоры.',
+      desc_en: 'Handmade, traditional patterns.',
+      price_ru: '100 сомони',
+      price_en: '100 TJS',
+      buyUrl: 'https://wa.me/992000000000'
+    },
   {
     id: 'gift-2',
     title_ru: 'Керамическая тарелка',
