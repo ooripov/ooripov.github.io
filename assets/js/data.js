@@ -19,7 +19,7 @@ window.MODERN_SPOTS = [
     id: 'modern-2',
     title_ru: 'Центральный Парк г. Худжанд',
     title_en: 'Central Park of Khujand',
-    img: '../assets/img/Khujandipark.jpg',
+    img: '../assets/img/khujandipark.jpg',
     story_ru: 'Опиши прогулочную зону: виды, кафе, вечерние огни, сколько времени заложить.',
     story_en: 'Describe the promenade: views, cafés, evening lights, and how long to plan.',
     mapUrl: buildMapUrl('Khujand central park')
@@ -28,7 +28,7 @@ window.MODERN_SPOTS = [
     id: 'modern-3',
     title_ru: 'Парк Исмоили Сомони',
     title_en: 'Ismoil Somoni Park',
-    img: '../assets/img/Somoni.webp',
+    img: '../assets/img/somoni.webp',
     story_ru: 'Опиши прогулочную зону: виды, кафе, вечерние огни, сколько времени заложить.',
     story_en: 'Describe the promenade: views, cafés, evening lights, and how long to plan.',
     mapUrl: buildMapUrl('Khujand Ismoil Somooni Park')
