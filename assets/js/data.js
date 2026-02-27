@@ -183,7 +183,7 @@ window.GIFTS = [
     id: 'gift-5',
     title_ru: 'Шарфы и платки из атласа и адраса',
     title_en: 'Scarves and shawls from silk and brocade',
-    img: '../assets/img/shawls.webp',
+    img: '../assets/img/shawls.jpg',
     desc_ru: 'Ручная работа, традиционные узоры.',
     desc_en: 'Handmade, traditional patterns.',
     price_ru: '100 сомони',
