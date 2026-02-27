@@ -78,7 +78,7 @@ window.MODERN_SPOTS = [
   },
   {
     id: "City-beach-park",
-    title_ru: "Наберженая",
+    title_ru: "Набережная и городской пляж",
     title_en: "City Beach",
     img: "../assets/img/beach.jpg",
     story_ru:
