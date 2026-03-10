@@ -133,7 +133,7 @@ window.OLD_SPOTS = [
   },
   {
     id: "old-streets",
-    title_ru: "Старые улоочки Худжанда",
+    title_ru: "Старые улочки Худжанда",
     title_en: "Old alleys of Khujand",
     img: "../assets/img/ulochki.jpg",
     story_ru:
@@ -291,8 +291,20 @@ window.CONTENT = {
   'restaurants-rated': [
     {
       kind: 'place',
-      name_ru: 'Ресторан (пример)',
-      name_en: 'Restaurant (example)',
+      name_ru: 'Кафе Бахтиёр (⭐⭐⭐⭐)',
+      name_en: 'Cafe Bahtiyar (⭐⭐⭐⭐)',
+      desc_ru: 'Плов, манты, шашлык. Средний чек: ...',
+      desc_en: 'Plov, manty, shashlik. Average bill: ...',
+      address: 'Худжанд, пример адреса',
+      hours: '11:00–23:00',
+      phone: '+992 00 000 0000',
+      whatsapp: '+992000000000',
+      mapQuery: 'Khujand restaurant'
+    },
+    {
+      kind: 'place',
+      name_ru: 'Кафе Равшан (⭐⭐⭐)',
+      name_en: 'Cafe Ravnshan (⭐⭐⭐)',
       desc_ru: 'Плов, манты, шашлык. Средний чек: ...',
       desc_en: 'Plov, manty, shashlik. Average bill: ...',
       address: 'Худжанд, пример адреса',
@@ -302,6 +314,50 @@ window.CONTENT = {
       mapQuery: 'Khujand restaurant'
     }
   ],
+  'restaurants-dishes': [
+    {
+           name_ru: 'Манты',
+      name_en: 'Mantu',
+      desc_ru: 'Про манты. Средний чек: ...',
+      desc_en: 'Plov, mantu, shashlik. Average bill: ...',
+    },
+    {
+           name_ru: 'Оши палов 2',
+      name_en: 'Oshi palov',
+      desc_ru: 'Плов, манты, шашлык. Средний чек: ...',
+      desc_en: 'Plov, manty, shashlik. Average bill: ...',
+    },
+    {
+           name_ru: 'Оши палов 3',
+      name_en: 'Oshi palov',
+      desc_ru: 'Плов, манты, шашлык. Средний чек: ...',
+      desc_en: 'Plov, manty, shashlik. Average bill: ...',
+    },
+    {
+           name_ru: 'Оши палов 4',
+      name_en: 'Oshi palov',
+      desc_ru: 'Плов, манты, шашлык. Средний чек: ...',
+      desc_en: 'Plov, manty, shashlik. Average bill: ...',
+    },
+    {
+           name_ru: 'Оши палов 5',
+      name_en: 'Oshi palov',
+      desc_ru: 'Плов, манты, шашлык. Средний чек: ...',
+      desc_en: 'Plov, manty, shashlik. Average bill: ...',
+    },
+    {
+           name_ru: 'Оши палов 6',
+      name_en: 'Oshi palov',
+      desc_ru: 'Плов, манты, шашлык. Средний чек: ...',
+      desc_en: 'Plov, manty, shashlik. Average bill: ...',
+    },
+    {
+           name_ru: 'Оши палов 2',
+      name_en: 'Oshi palov',
+      desc_ru: 'Плов, манты, шашлык. Средний чек: ...',
+      desc_en: 'Plov, manty, shashlik. Average bill: ...',
+    },
+    ],
   'host-contacts': [
     {
       kind: 'place',

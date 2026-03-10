@@ -225,6 +225,8 @@ function closeModal() {
 function createPlaceCard(item, lang) {
   const name = (lang === 'en' ? item.name_en : item.name_ru) || item.name_ru || item.name_en || '';
   const desc = (lang === 'en' ? item.desc_en : item.desc_ru) || item.desc_ru || item.desc_en || '';
+  const searchName = item.name_en || item.name_ru || name || '';
+const searchUrl = 'https://www.google.com/search?q=' + encodeURIComponent(searchName + ' Khujand');
 
   const card = document.createElement('div');
   card.className = 'place-card';
@@ -274,6 +276,16 @@ function createPlaceCard(item, lang) {
 
   const phone = normalizePhone(item.phone);
   const whatsapp = normalizePhone(item.whatsapp);
+
+ if (searchName) {
+    const a = document.createElement('a');
+    a.className = 'pill';
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.href = searchUrl;
+    a.textContent = lang === 'en' ? 'Search' : 'Поиск';
+    actions.appendChild(a);
+  }
 
   if (item.mapQuery || item.address) {
     const a = document.createElement('a');
@@ -545,41 +557,37 @@ document.addEventListener('click', (e) => {
   }, 350); // чуть меньше чем CSS transition
 });
 
-  // render dynamic parts
+   // render dynamic parts
   renderDynamic();
 
-document.addEventListener('DOMContentLoaded', () => {
-  const modal = document.getElementById('authorModal');
-  if (!modal) return;
+  const authorModal = document.getElementById('authorModal');
+  if (authorModal) {
+    const openBtn =
+      document.getElementById('openAuthorBtn') ||
+      document.getElementById('authorBtn');
 
-  const openBtn =
-    document.getElementById('openAuthorBtn') ||
-    document.getElementById('authorBtn'); // на случай старого id
+    const closeBtn = document.getElementById('closeAuthorModal');
+    const backdrop = document.getElementById('authorBackdrop');
 
-  const closeBtn = document.getElementById('closeAuthorModal');
-  const backdrop = document.getElementById('authorBackdrop');
+    const openAuthorModal = () => {
+      authorModal.classList.add('open');
+      authorModal.setAttribute('aria-hidden', 'false');
+    };
 
-  const open = () => {
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden', 'false');
-  };
+    const closeAuthorModal = () => {
+      authorModal.classList.remove('open');
+      authorModal.setAttribute('aria-hidden', 'true');
+    };
 
-  const close = () => {
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden', 'true');
-  };
+    if (openBtn) openBtn.addEventListener('click', openAuthorModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeAuthorModal);
+    if (backdrop) backdrop.addEventListener('click', closeAuthorModal);
 
-  if (openBtn) openBtn.addEventListener('click', open);
-  if (closeBtn) closeBtn.addEventListener('click', close);
-  if (backdrop) backdrop.addEventListener('click', close);
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') close();
-  });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeAuthorModal();
+    });
+  }
 });
-});
-
-
 
 function getIntercityTitle(r, lang){
   return lang === 'en' ? (r.title_en || r.title_ru) : (r.title_ru || r.title_en);

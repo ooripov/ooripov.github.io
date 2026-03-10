@@ -8,7 +8,6 @@
 </head>
 <body class="page-shell hero--home">
 
-  <!-- SPLASH -->
   <div id="splash" class="splash" role="button" tabindex="0" aria-label="Start">
     <div class="splash-overlay"></div>
 
@@ -25,21 +24,21 @@
     </div>
   </div>
 
-<header class="hero">
-  <div class="hero-top">
-    <div class="top-controls">
-      <div class="lang-switch" role="group" aria-label="Language">
-        <button class="lang-btn" type="button" data-lang="ru">RU</button>
-        <button class="lang-btn" type="button" data-lang="en">EN</button>
-      </div>
+  <header class="hero">
+    <div class="hero-top">
+      <div class="top-controls">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button class="lang-btn" type="button" data-lang="ru">RU</button>
+          <button class="lang-btn" type="button" data-lang="en">EN</button>
+        </div>
 
- 
-      </button>
+        <button id="openAuthorBtn" class="profile-btn" type="button" aria-label="Profile">
+  <img src="assets/img/author.jpg" alt="Profile" />
+</button>      </div>
     </div>
-  </div>
 
-  <h1 data-i18n="hero_welcome">Добро пожаловать!</h1>
-</header>
+    <h1 data-i18n="hero_welcome">Добро пожаловать!</h1>
+  </header>
 
   <main class="container">
     <section class="page">
@@ -54,19 +53,58 @@
     </section>
   </main>
 
-<footer class="footer">
-  <div class="container footer-inner">
-    <p>
-      © <span id="year"></span> Khujand Guide · 
-      <span data-i18n="footer_author">Создано Olimjon Oripov</span>
-    </p>
+  <div id="authorModal" class="modal" aria-hidden="true">
+  <div id="authorBackdrop" class="modal-backdrop"></div>
+
+  <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="authorModalTitle">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-title-row">
+          <h3 id="authorModalTitle" class="modal-title" data-i18n="author_modal_title">Профиль</h3>
+          <button id="closeAuthorModal" class="modal-close" type="button" data-i18n="btn_close">Закрыть</button>
+        </div>
+
+        <div class="author-box">
+          <div class="author-avatar-wrap">
+            <img class="author-avatar" src="assets/img/author.jpg" alt="Olimjon Oripov" />
+          </div>
+
+          <div class="author-info">
+            <h4 data-i18n="author_name">Олимджон Орипов</h4>
+
+            <p data-i18n="author_role">
+              QA Engineer · Airbnb Superhost · Автор гида по Худжанду
+            </p>
+
+            <p data-i18n="author_bio">
+              Работаю над качеством цифровых продуктов и развиваю туристический гид,
+              чтобы сделать Худжанд удобнее и интереснее для гостей.
+            </p>
+
+            <div class="author-links">
+              <a class="pill" href="mailto:yourmail@example.com" data-i18n="author_email">Email</a>
+              <a class="pill" href="https://t.me/yourusername" target="_blank" rel="noopener" data-i18n="author_telegram">Telegram</a>
+              <a class="pill" href="https://www.linkedin.com/in/your-linkedin/" target="_blank" rel="noopener" data-i18n="author_linkedin">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
-</footer>
+</div>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>
+        © <span id="year"></span> Khujand Guide ·
+        <span data-i18n="footer_author">Создано Olimjon Oripov</span>
+      </p>
+    </div>
+  </footer>
 
   <script src="assets/js/i18n.js" defer></script>
   <script src="assets/js/data.js" defer></script>
   <script src="assets/js/app.js" defer></script>
-
-</div>
 </body>
 </html>
