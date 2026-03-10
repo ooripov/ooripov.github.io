@@ -621,3 +621,14 @@ function renderIntercityIfAny(){
     grid.appendChild(btn);
   });
 }
+
+window.addEventListener('pageshow', () => {
+  document.body.classList.remove('page-leaving');
+  document.body.classList.remove('splash-closing');
+  document.body.classList.remove('lang-fade');
+});
+
+window.addEventListener('pagehide', () => {
+  document.body.classList.remove('page-leaving');
+});
+
