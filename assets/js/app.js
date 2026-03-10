@@ -622,10 +622,19 @@ function renderIntercityIfAny(){
   });
 }
 
-window.addEventListener('pageshow', () => {
+/* FIX: корректное восстановление страницы при Back */
+
+window.addEventListener('pageshow', (event) => {
   document.body.classList.remove('page-leaving');
   document.body.classList.remove('splash-closing');
   document.body.classList.remove('lang-fade');
+
+  // если страница пришла из bfcache
+  if (event.persisted) {
+    requestAnimationFrame(() => {
+      document.body.classList.remove('page-leaving');
+    });
+  }
 });
 
 window.addEventListener('pagehide', () => {

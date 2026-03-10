@@ -371,14 +371,9 @@ body.splash-closing .container{
 
 /* начальное состояние страницы */
 .page-shell{
-  opacity: 1;
-  transform: translateY(0);
-  transition:
-    opacity .45s ease,
-    transform .45s ease;
+  transition: opacity .35s ease, transform .35s ease;
 }
 
-/* когда уходим со страницы */
 .page-shell.page-leaving{
   opacity:0;
   transform:translateX(-30px);
