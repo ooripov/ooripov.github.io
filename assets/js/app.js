@@ -430,37 +430,6 @@ function renderDynamic() {
   }
 }
 
-/* =========================
-   Splash (only index)
-========================= */
-
-const SPLASH_KEY = 'splashSeen';
-
-function hasSeenSplash() {
-  return localStorage.getItem(SPLASH_KEY) === '1';
-}
-function markSplashSeen() {
-  localStorage.setItem(SPLASH_KEY, '1');
-}
-
-function hideSplashIfAny() {
-  const splash = document.getElementById('splash');
-  if (!splash) return;
-
-  document.body.classList.add('splash-closing');
-  splash.classList.add('closing');
-
-  const onEnd = (e) => {
-    if (e.propertyName !== 'transform') return;
-    splash.removeEventListener('transitionend', onEnd);
-
-    splash.style.display = 'none';
-    document.body.classList.remove('splash-closing');
-  };
-
-  splash.addEventListener('transitionend', onEnd);
-}
-
 
 /* =========================
    init

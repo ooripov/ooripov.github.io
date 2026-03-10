@@ -324,55 +324,6 @@ background: rgba(255,255,255,.08);
   .modal-grid{ grid-template-columns: 1fr; }
 }
 
-/* SPLASH */
-.splash{
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  padding:34px 18px;
-  background: url('../img/Khujand.png') center/cover no-repeat;
-  cursor:pointer;
-}
-.splash-overlay{
-  position:absolute;
-  inset:0;
-  background: linear-gradient(to bottom, rgba(0,0,0,.10), rgba(0,0,0,.78));
-}
-.splash-lang{
-  position:absolute;
-  top:16px;
-  right:16px;
-  z-index:2;
-}
-.splash-content{
-  position:relative;
-  z-index:1;
-  text-align:center;
-  max-width: 520px;
-}
-.splash-title{
-  font-size:42px;
-  font-weight:800;
-  letter-spacing:.8px;
-  margin-bottom:8px;
-}
-.splash-hint{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:10px 14px;
-  border-radius:999px;
-  background: rgba(255,255,255,.12);
-  border: 1px solid rgba(255,255,255,.18);
-  backdrop-filter: blur(10px);
-  font-weight:700;
-}
-@media(max-width:500px){
-  .splash-title{ font-size:34px; }
-}
 
 /* Splash animation — slower & smoother */
 .splash{
