@@ -4,6 +4,9 @@ function buildMapUrl(q) {
   return 'https://www.google.com/maps/search/?api=1&query=' + query;
 }
 
+// ВАЖНО: поля с пометкой TODO — это данные, которые нельзя проверить из открытых источников
+// (ваш личный телефон/WhatsApp, точные цены в магазинах и т.п.). Заполните их сами.
+
 window.MODERN_SPOTS = [
   {
     id: 'modern-1',
@@ -16,21 +19,21 @@ window.MODERN_SPOTS = [
   },
   {
     id: 'modern-2',
-    title_ru: 'Центральный парк Худжанда',
-    title_en: 'Central Park of Khujand',
+    title_ru: 'Парк культуры и отдыха имени Камоли Худжанди',
+    title_en: 'Kamoli Khujandi Park',
     img: '../assets/img/khujandipark.jpg',
-    story_ru: 'Центральный парк подходит для спокойной прогулки, семейного отдыха и вечерних поездок. Чаще всего здесь гуляют после обеда, выбирают тень деревьев, кафе и живописные дорожки. В хорошую погоду это один из лучших вариантов провести 1–2 часа на свежем воздухе.',
-    story_en: 'The central park is ideal for a calm walk, family time, and evening outings. Visitors usually come here after lunch for shade, easy paths, and café stops. In good weather it is one of the best places to spend 1–2 hours outdoors.',
-    mapUrl: buildMapUrl('Central Park Khujand')
+    story_ru: 'Парк имени Камоли Худжанди расположен в центре города, на берегу Сырдарьи, рядом со стенами Худжандской крепости. Здесь находятся мавзолей и памятник поэту, дом-музей Камоли Худжанди с чорбагом, резными верандами и фонтанами. По данным путеводителей, парк открыт примерно с 05:00 до 22:00. Хорошо подходит для спокойной прогулки днём и вечером.',
+    story_en: 'Kamoli Khujandi Park sits in the city center on the bank of the Syr Darya, right next to the walls of Khujand Fortress. It features the poet’s mausoleum and monument, his house-museum with a chorbog, carved verandas, and fountains. Travel guides list opening hours of roughly 05:00–22:00. It is a good place for a calm walk by day or evening.',
+    mapUrl: buildMapUrl('Kamoli Khujandi Park Khujand')
   },
   {
     id: 'modern-3',
     title_ru: 'Парк имени Исмоили Сомони',
     title_en: 'Ismoili Somoni Park',
     img: '../assets/img/Somoni.jpg',
-    story_ru: 'Парк имени Исмоили Сомони — символ современной городской среды Худжанда. Он привлекает зелеными аллеями, просторными дорожками и удобным расположением вблизи центра. Здесь удобно прогуляться, сделать фото и отдохнуть без спешки, особенно вечером.',
-    story_en: 'Ismoili Somoni Park is a symbol of modern Khujand. It is known for green avenues, wide pedestrian paths, and central location. The park is convenient for a relaxed walk, photos, and a slower evening break away from the busier streets.',
-    mapUrl: buildMapUrl('Ismoil Somoni Park Khujand')
+    story_ru: 'Парк имени Исмоили Сомони расположен в центре города, на правом (северном) берегу Сырдарьи. Главная достопримечательность — монумент основателю государства Саманидов Исмоили Сомони с каскадами фонтанов, широкими лестницами и тенистыми аллеями. Здесь же находится станция канатной дороги. Вход свободный, парк открыт круглосуточно; вечером включается декоративная подсветка. На прогулку и фото обычно хватает 1–2 часов.',
+    story_en: 'Ismoili Somoni Park lies in the city center on the northern bank of the Syr Darya. Its centerpiece is the monument to Ismoil Somoni, founder of the Samanid state, surrounded by cascading fountains, wide stairways, and shaded alleys. The cable car station is also here. Entry is free and the park is open around the clock, with decorative lighting in the evening. Allow 1–2 hours for a walk and photos.',
+    mapUrl: buildMapUrl('Ismoili Somoni Park Khujand')
   },
   {
     id: 'modern-4',
@@ -46,9 +49,9 @@ window.MODERN_SPOTS = [
     title_ru: 'Канатная дорога',
     title_en: 'Cable Car',
     img: '../assets/img/cable.jpg',
-    story_ru: 'Канатная дорога — один из самых эффектных способов увидеть город с высоты. Здесь открываются панорамные виды на Худжанд, прилегающие районы и реку. Для гостей поездка — это интересный и быстрый способ получить сильные впечатления без долгой прогулки.',
-    story_en: 'The cable car is one of the most impressive ways to see Khujand from above. The ride offers panoramic views of the city, surrounding areas, and river. For visitors, it is a quick and memorable way to get a broader perspective of the city.',
-    mapUrl: buildMapUrl('Khujand cable car')
+    story_ru: 'Канатная дорога соединяет парк Сомони на правом берегу Сырдарьи с историческим комплексом «Худжандская крепость» на левом берегу. Во время поездки открываются панорамные виды на город, реку и окружающие горы. По данным путеводителей, обычная кабина стоит около 15 сомони, VIP-кабина — около 20 (цены лучше уточнить на станции). Удобно совместить поездку с посещением крепости и парка Камоли Худжанди.',
+    story_en: 'The cable car links Somoni Park on the right bank of the Syr Darya with the Khujand Fortress complex on the left bank. The ride offers panoramic views of the city, the river, and the surrounding mountains. Travel guides list about 15 TJS for a standard cabin and about 20 TJS for a VIP cabin (confirm at the station). It pairs well with a visit to the fortress and Kamoli Khujandi Park.',
+    mapUrl: buildMapUrl('Khujand cable car Somoni Park')
   },
   {
     id: 'modern-6',
@@ -73,8 +76,8 @@ window.MODERN_SPOTS = [
     title_ru: 'Набережная и городской пляж',
     title_en: 'City Beach & Promenade',
     img: '../assets/img/beach.jpg',
-    story_ru: 'Набережная и городской пляж — места, которые особенно нравятся в жаркие дни. Здесь хорошо гулять, отдыхать и наблюдать, как город проводит время у воды. Для гостей это удобная зона для короткого отдыха и красивых фотографий в теплую погоду.',
-    story_en: 'The promenade and city beach are especially popular on hot days. It is a good place for a walk, a break by the water, and watching local life unfold. For visitors, it is a convenient area to relax and take photos in a more open setting.',
+    story_ru: 'Набережная Сырдарьи и городской пляж — места, которые особенно нравятся в жаркие дни: летом температура в Худжанде нередко превышает 35 °C. Здесь хорошо гулять, отдыхать и наблюдать, как город проводит время у воды. Для гостей это удобная зона для короткого отдыха и красивых фотографий в тёплую погоду.',
+    story_en: 'The Syr Darya promenade and city beach are especially popular on hot days; summer temperatures in Khujand often exceed 35 °C. It is a good place for a walk, a break by the water, and watching local life unfold. For visitors, it is a convenient area to relax and take photos in warm weather.',
     mapUrl: buildMapUrl('Khujand city beach promenade')
   }
 ];
@@ -82,20 +85,20 @@ window.MODERN_SPOTS = [
 window.OLD_SPOTS = [
   {
     id: 'old-1',
-    title_ru: 'Старая крепость Худжанда',
-    title_en: 'Old Khujand Fortress',
+    title_ru: 'Худжандская крепость и Исторический музей Согда',
+    title_en: 'Khujand Fortress & Sughd Historical Museum',
     img: '../assets/img/old.jpg',
-    story_ru: 'Старая крепость — важная часть исторического облика Худжанда. Здесь ощущается дух старого города: узкие проходы, историческая навигация, древние стены и атмосфера эпохи, в которую город смотрит на своё прошлое. Лучше всего приезжать в первой половине дня, когда свет мягче и прогулка спокойнее.',
-    story_en: 'The Old Khujand Fortress is an important part of the city’s historical identity. It carries the feeling of an old trading city: narrow lanes, historic walls, and a strong sense of heritage. It is best visited in the early morning, when the light is gentle and the atmosphere is quieter.',
-    mapUrl: buildMapUrl('Old Khujand Fortress')
+    story_ru: 'Худжандская крепость — главный исторический символ города: старейшие её части относят к V–IV векам до н. э., а нынешний вид — результат реконструкций, в том числе недавних. Внутри расположен Исторический музей Согдийской области, один из старейших в стране (основан в 1931 году): здесь собраны находки из эпохи Александра Македонского и до современности. Комплекс стоит на берегу Сырдарьи, на улице Зариф Раджабова, а добраться сюда можно на канатной дороге из парка Сомони. Музей обычно работает со вторника по воскресенье — график и стоимость билета для иностранцев лучше уточнить на сайте qalai-khujand.tj. На осмотр понадобится 1,5–2 часа.',
+    story_en: 'Khujand Fortress is the city’s main historical symbol: its oldest parts date to the 5th–4th centuries BC, while its present look is the result of several reconstructions, including recent ones. Inside is the Historical Museum of Sughd, one of the oldest in the country (founded in 1931), with exhibits from the era of Alexander the Great to modern times. The complex stands on the bank of the Syr Darya on Zarif Rajabov Street, and can be reached by cable car from Somoni Park. The museum usually operates Tuesday to Sunday — check hours and foreigner ticket prices at qalai-khujand.tj. Allow 1.5–2 hours.',
+    mapUrl: buildMapUrl('Khujand Fortress Historical Museum of Sughd')
   },
   {
     id: 'old-2',
     title_ru: 'Традиционная чайхана',
     title_en: 'Traditional Teahouse',
     img: '../assets/img/chaykhana.webp',
-    story_ru: 'Традиционная чайхана — идеальное место, чтобы почувствовать местную культуру через чай, беседу и простую атмосферу. Здесь часто подают зелёный чай, узбекский чай и лёгкие закуски. Для гостей это один из самых уютных способов провести час и познакомиться с местным ритмом.',
-    story_en: 'A traditional teahouse is one of the most atmospheric ways to experience local culture. It is often a place for tea, conversation, and small snacks. For visitors, it is a cozy way to slow down and get a feel for everyday life in Khujand.',
+    story_ru: 'Традиционная чайхана — идеальное место, чтобы почувствовать местную культуру через чай, беседу и простую атмосферу. Здесь обычно подают зелёный и чёрный чай, лепёшки, самсу и лёгкие закуски. Для гостей это один из самых уютных способов провести час и познакомиться с местным ритмом.',
+    story_en: 'A traditional teahouse is one of the most atmospheric ways to experience local culture. It is often a place for green or black tea, flatbread, samsa, and small snacks. For visitors, it is a cozy way to slow down and get a feel for everyday life in Khujand.',
     mapUrl: buildMapUrl('Khujand teahouse')
   },
   {
@@ -103,9 +106,9 @@ window.OLD_SPOTS = [
     title_ru: 'Рынок Панжшанбе',
     title_en: 'Panjshanbe Market',
     img: '../assets/img/panjshanbe.jpg',
-    story_ru: 'Панжшанбе — один из самых живых и насыщенных рынков города. Здесь можно увидеть фрукты, специи, зелень, подарки и местные продукты, а также почувствовать повседневную городскую атмосферу. Это хороший выбор для тех, кто хочет понять локальный ритм и купить что-то по-настоящему местное.',
-    story_en: 'Panjshanbe Market is one of the liveliest and most sensory parts of Khujand. Visitors can discover fresh fruit, spices, herbs, crafts, and everyday local goods. It is an excellent place to understand the local rhythm and buy something truly authentic.',
-    mapUrl: buildMapUrl('Panjshanbe Market Khujand')
+    story_ru: 'Панжшанбе (в переводе — «четверг») — один из самых больших и известных крытых рынков Таджикистана. Он находится в самом центре, на улице Шарк, 3а, напротив мавзолея шейха Муслихиддина. Здесь продают фрукты, сухофрукты, специи, зелень, хлеб, ремесленные изделия и местные продукты. Здание сочетает восточные и сталинские архитектурные мотивы. Лучше приходить с утра, на осмотр обычно уходит 1,5–2 часа. Режим работы разных рядов отличается — уточняйте на месте.',
+    story_en: 'Panjshanbe (meaning “Thursday”) is one of the largest and best-known covered markets in Tajikistan. It stands in the very center, at 3a Sharq Street, opposite the Mausoleum of Sheikh Muslihiddin. You will find fresh and dried fruit, spices, herbs, bread, crafts, and everyday local goods. The building blends Eastern and Stalinist-era architectural elements. Come in the morning; allow 1.5–2 hours. Hours vary by section, so confirm on site.',
+    mapUrl: buildMapUrl('Panjshanbe Bazaar Khujand')
   },
   {
     id: 'old-4',
@@ -118,12 +121,12 @@ window.OLD_SPOTS = [
   },
   {
     id: 'old-5',
-    title_ru: 'Музей старой квартиры / исторический двор',
-    title_en: 'Historic Apartment Museum',
+    title_ru: 'Мавзолей и мечеть шейха Муслихиддина',
+    title_en: 'Sheikh Muslihiddin Mausoleum & Mosque',
     img: '../assets/img/apart-museum.jpg',
-    story_ru: 'Исторические помещения и старые городские дворы помогают понять, как выглядела повседневная жизнь Худжанда в прошлом. Такие места особенно ценны для гостей, которым интересна история повседневности: интерьер, быт, мебель, традиционные решения и характер жилой архитектуры.',
-    story_en: 'Historic houses and old courtyard spaces help visitors understand how daily life in Khujand used to look. These places are highly valued by travelers interested in local history, domestic architecture, and traditional life beyond the main landmarks.',
-    mapUrl: buildMapUrl('Historic apartment museum Khujand')
+    story_ru: 'Комплекс шейха Муслихиддина — один из главных религиозных и архитектурных памятников Худжанда. Он расположен в центре города, прямо напротив рынка Панжшанбе, поэтому его удобно сочетать с походом на рынок. Это хорошее место, чтобы увидеть, как старая городская архитектура и повседневная жизнь существуют рядом. При посещении соблюдайте дресс-код: закрытые плечи и колени, для женщин — платок.',
+    story_en: 'The Sheikh Muslihiddin complex is one of Khujand’s main religious and architectural landmarks. It stands in the city center, directly opposite Panjshanbe Market, so the two are easy to combine. It is a good place to see how historic architecture and everyday city life sit side by side. Dress modestly: cover shoulders and knees, and women should bring a headscarf.',
+    mapUrl: buildMapUrl('Sheikh Muslihiddin Mausoleum Khujand')
   },
   {
     id: 'old-6',
@@ -144,20 +147,20 @@ window.GIFTS = [
     img: '../assets/img/suzani.avif',
     desc_ru: 'Классический подарочный сувенир с ярким национальным рисунком. Подходит для декора дома, спальни или гостиной.',
     desc_en: 'A classic souvenir with bright traditional patterns. Great for home décor or a welcoming gift.',
-    price_ru: 'от 400 сомони',
+    price_ru: 'от 400 сомони', // TODO: проверить цены у вашего поставщика
     price_en: 'from 400 TJS',
-    buyUrl: 'https://wa.me/992000000000'
+    buyUrl: 'https://wa.me/992927544484'
   },
   {
     id: 'gift-2',
-    title_ru: 'Шарфы и платки из шёлка и адараса',
+    title_ru: 'Шарфы и платки из шёлка и адраса',
     title_en: 'Silk and adras scarves',
     img: '../assets/img/shawls.webp',
     desc_ru: 'Лёгкие, стильные и красивые — идеальны как подарок и как национальный аксессуар для дома.',
     desc_en: 'Lightweight and beautiful, perfect as a memorable souvenir or a traditional accessory.',
     price_ru: 'от 150 сомони',
     price_en: 'from 150 TJS',
-    buyUrl: 'https://wa.me/992000000000'
+    buyUrl: 'https://wa.me/992927544484'
   },
   {
     id: 'gift-3',
@@ -168,7 +171,7 @@ window.GIFTS = [
     desc_en: 'A practical and decorative gift that works well in a traditional or modern home.',
     price_ru: 'от 120 сомони',
     price_en: 'from 120 TJS',
-    buyUrl: 'https://wa.me/992000000000'
+    buyUrl: 'https://wa.me/992927544484'
   },
   {
     id: 'gift-4',
@@ -179,18 +182,18 @@ window.GIFTS = [
     desc_en: 'A traditional accessory with distinctive national patterns and a strong cultural identity.',
     price_ru: 'от 180 сомони',
     price_en: 'from 180 TJS',
-    buyUrl: 'https://wa.me/992000000000'
+    buyUrl: 'https://wa.me/992927544484'
   },
   {
     id: 'gift-5',
     title_ru: 'Керамическая посуда и тарелки',
     title_en: 'Ceramic plates and tableware',
     img: '../assets/img/tarelka.webp',
-    desc_ru: 'Ручная роспись и орнаменты Согда делают такую посуду особенно ценным сувениром.',
-    desc_en: 'Hand-painted ceramics with Sogdian motifs make a memorable and useful souvenir.',
+    desc_ru: 'Ручная роспись и традиционные орнаменты делают такую посуду особенно ценным сувениром.',
+    desc_en: 'Hand-painted ceramics with traditional motifs make a memorable and useful souvenir.',
     price_ru: 'от 200 сомони',
     price_en: 'from 200 TJS',
-    buyUrl: 'https://wa.me/992000000000'
+    buyUrl: 'https://wa.me/992927544484'
   },
   {
     id: 'gift-6',
@@ -201,7 +204,7 @@ window.GIFTS = [
     desc_en: 'A useful and stylish accessory that keeps the local design language in everyday life.',
     price_ru: 'от 220 сомони',
     price_en: 'from 220 TJS',
-    buyUrl: 'https://wa.me/992000000000'
+    buyUrl: 'https://wa.me/992927544484'
   },
   {
     id: 'gift-7',
@@ -212,7 +215,7 @@ window.GIFTS = [
     desc_en: 'Small clay objects that reflect the texture and spirit of local craft traditions.',
     price_ru: 'от 110 сомони',
     price_en: 'from 110 TJS',
-    buyUrl: 'https://wa.me/992000000000'
+    buyUrl: 'https://wa.me/992927544484'
   },
   {
     id: 'gift-8',
@@ -223,33 +226,46 @@ window.GIFTS = [
     desc_en: 'A compact and attractive gift with a traditional design language and everyday wearability.',
     price_ru: 'от 130 сомони',
     price_en: 'from 130 TJS',
-    buyUrl: 'https://wa.me/992000000000'
+    buyUrl: 'https://wa.me/992927544484'
   }
 ];
 
-// Directory lists for “place cards” pages (пример)
+// Directory lists for “place cards” pages
+// Телефоны оставлены пустыми там, где проверенного номера нет — не подставляйте выдуманные.
 window.CONTENT = {
   'essentials-banks': [
     {
       kind: 'place',
-      name_ru: 'Амонатбанк / отделение банка',
-      name_en: 'Amonatbank / bank branch',
-      desc_ru: 'Крупное отделение для обмена валюты, карт и оплаты услуг. Лучше приходить в рабочее время и иметь паспорт при необходимости.',
-      desc_en: 'A major branch for cash exchange, cards, and basic banking services. It is best to visit during business hours and carry your passport if needed.',
-      address: 'Центр Худжанда, рядом с деловым и торговым районом',
-      hours: '09:00–18:00',
-      phone: '+992 00 000 0000',
-      whatsapp: '+992000000000',
-      mapQuery: 'Amonatbank Khujand'
+      name_ru: 'Амонатбонк (Сберегательный банк Таджикистана)',
+      name_en: 'Amonatbonk (Savings Bank of Tajikistan)',
+      desc_ru: 'Государственный банк с отделениями по всей стране; история банка начинается с сберегательной кассы, открытой в Худжанде в 1885 году. Подходит для обмена валюты и базовых услуг. Возьмите паспорт.',
+      desc_en: 'A state bank with branches across the country; its history goes back to a savings office opened in Khujand in 1885. Suitable for currency exchange and basic services. Bring your passport.',
+      address: 'Худжанд, центр (точный адрес ближайшего отделения уточняйте на amonatbonk.tj или у хозяина)', // TODO
+      hours: '09:00–17:00 (уточняйте)',
+      phone: '',
+      whatsapp: '',
+      mapQuery: 'Amonatbonk Khujand'
     },
     {
       kind: 'place',
-      name_ru: 'Платёжный терминал / банкомат',
+      name_ru: 'Банк «Эсхата» (головной офис — Худжанд)',
+      name_en: 'Bank Eskhata (head office in Khujand)',
+      desc_ru: 'Один из крупнейших банков Таджикистана, головной офис находится в Худжанде. Банкоматы банка считаются надёжными для карт Visa/Mastercard.',
+      desc_en: 'One of the largest banks in Tajikistan, headquartered in Khujand. Its ATMs are widely reported as reliable for Visa/Mastercard.',
+      address: 'Худжанд (точный адрес отделения уточняйте на сайте банка)', // TODO
+      hours: '09:00–17:00 (уточняйте)',
+      phone: '',
+      whatsapp: '',
+      mapQuery: 'Bank Eskhata Khujand'
+    },
+    {
+      kind: 'place',
+      name_ru: 'Банкомат / платёжный терминал',
       name_en: 'ATM / payment terminal',
-      desc_ru: 'Удобно для снятия наличных и оплаты услуг в центре города. Обычно работает в течение дня, но лучше уточнять точное местоположение у хозяина.',
-      desc_en: 'Useful for withdrawing cash and paying for services in the city center. Availability can vary by block, so it is wise to ask your host for the nearest option.',
-      address: 'Около центральных улиц и рынков Худжанда',
-      hours: 'Круглосуточно',
+      desc_ru: 'Банкоматы есть в центре города, около рынков и торговых центров. Не рассчитывайте на один банкомат — лучше иметь запас наличных и уточнить у хозяина ближайший работающий.',
+      desc_en: 'ATMs are found in the city center and near markets and shopping centers. Do not rely on a single machine — keep some cash in reserve and ask your host for the nearest working one.',
+      address: 'Центральные улицы, рынки и торговые центры Худжанда',
+      hours: 'Обычно круглосуточно',
       phone: '',
       whatsapp: '',
       mapQuery: 'ATM Khujand center'
@@ -258,27 +274,39 @@ window.CONTENT = {
   'essentials-sim': [
     {
       kind: 'place',
-      name_ru: 'Офис TCell',
-      name_en: 'TCell office',
-      desc_ru: 'Один из самых удобных вариантов для покупки SIM-карты, пополнения баланса и подключения мобильного интернета.',
-      desc_en: 'A very practical option for buying a SIM card, topping up, and getting mobile data in Khujand.',
-      address: 'В центре города, рядом с торговыми районами',
-      hours: '09:00–19:00',
-      phone: '+992 00 000 0000',
-      whatsapp: '+992000000000',
-      mapQuery: 'TCell Khujand'
+      name_ru: 'Центр обслуживания Tcell (ул. К. Худжанди, 162)',
+      name_en: 'Tcell service center (162 K. Khujandi St)',
+      desc_ru: 'Крупнейший оператор страны. Здесь можно купить SIM-карту (нужен паспорт), пополнить баланс и подключить мобильный интернет. Есть и другие центры — у автовокзала и в 34-м микрорайоне (ТЦ «Абукарим»).',
+      desc_en: 'The largest mobile operator in the country. You can buy a SIM card (bring your passport), top up, and get mobile data. Other service centers are near the bus station and in the 34th microdistrict (Abukarim shopping center).',
+      address: 'Худжанд, ул. К. Худжанди, 162',
+      hours: '09:00–18:00 (уточняйте)', // TODO: проверить
+      phone: '',
+      whatsapp: '',
+      mapQuery: 'Tcell Khujand Kamoli Khujandi 162'
     },
     {
       kind: 'place',
-      name_ru: 'Офис Megafon',
-      name_en: 'Megafon office',
-      desc_ru: 'Альтернативный оператор для тех, кто ищет более удобные тарифы или нуждается в поддержке на местном языке.',
-      desc_en: 'Alternative local operator for travelers comparing pricing or service availability.',
-      address: 'Районы центральной торговли Худжанда',
-      hours: '09:00–18:00',
-      phone: '+992 00 000 0000',
-      whatsapp: '+992000000000',
-      mapQuery: 'Megafon Khujand'
+      name_ru: 'Центр обслуживания Tcell (у автовокзала)',
+      name_en: 'Tcell service center (near the bus station)',
+      desc_ru: 'Удобно, если вы только приехали на автовокзал: можно сразу купить SIM-карту и интернет.',
+      desc_en: 'Handy if you have just arrived at the bus station: buy a SIM card and data right away.',
+      address: 'Худжанд, рядом с автовокзалом',
+      hours: '09:00–18:00 (уточняйте)',
+      phone: '',
+      whatsapp: '',
+      mapQuery: 'Tcell Khujand bus station'
+    },
+    {
+      kind: 'place',
+      name_ru: 'Офис Megafon Таджикистан',
+      name_en: 'Megafon Tajikistan office',
+      desc_ru: 'Альтернативный оператор: сравните тарифы и покрытие. Адрес ближайшего салона лучше уточнить в приложении оператора или у хозяина.',
+      desc_en: 'An alternative operator: compare pricing and coverage. Ask your host or check the operator’s app for the nearest shop.',
+      address: 'Худжанд (адрес уточняйте)', // TODO
+      hours: '09:00–18:00 (уточняйте)',
+      phone: '',
+      whatsapp: '',
+      mapQuery: 'Megafon Tajikistan Khujand'
     }
   ],
   'restaurants-rated': [
@@ -288,11 +316,11 @@ window.CONTENT = {
       name_en: 'Cafe Bahtiyor',
       desc_ru: 'Популярное место для плова, манты, шурпы и стейков. Удобно для семейного ужина или отдыха после прогулки.',
       desc_en: 'Popular spot for plov, manty, shurpa, and grilled dishes. Good for a casual family dinner or relaxed evening.',
-      address: 'Центральная часть Худжанда',
+      address: 'Улица Сырдарьи, рядом с гостиницей «Парламент»',
       hours: '11:00–23:00',
-      phone: '+992 00 000 0000',
-      whatsapp: '+992000000000',
-      mapQuery: 'Cafe Bahtiyor Khujand'
+      phone: '',
+      whatsapp: '',
+      mapQuery: 'Cafe Bahtiyor Syr Darya street Parlament hotel Khujand'
     },
     {
       kind: 'place',
@@ -300,11 +328,11 @@ window.CONTENT = {
       name_en: 'Cafe Ravshan',
       desc_ru: 'Дружелюбная атмосфера, блюда национальной кухни и хорошее расположение для гостей, приехавших в центр города.',
       desc_en: 'Friendly atmosphere, national dishes, and a practical central location for visitors.',
-      address: 'В центре Худжанда',
+      address: 'Рядом с театром, центр Худжанда',
       hours: '10:00–22:00',
-      phone: '+992 00 000 0000',
-      whatsapp: '+992000000000',
-      mapQuery: 'Cafe Ravshan Khujand'
+      phone: '',
+      whatsapp: '',
+      mapQuery: 'Cafe Ravshan near theater Khujand'
     },
     {
       kind: 'place',
@@ -314,17 +342,17 @@ window.CONTENT = {
       desc_en: 'A good place for tea, samsa, and a slower local experience away from tourist-heavy spots.',
       address: 'Один из жилых кварталов Худжанда',
       hours: '09:00–21:00',
-      phone: '+992 00 000 0000',
-      whatsapp: '+992000000000',
+      phone: '',
+      whatsapp: '',
       mapQuery: 'Local teahouse Khujand'
     }
   ],
   'restaurants-dishes': [
     {
-      name_ru: 'Плов',
-      name_en: 'Plov',
-      desc_ru: 'Традиционное блюдо с рисом, мясом, морковью и специями. Обычно подаётся в крупных порциях.',
-      desc_en: 'Traditional rice dish with meat, carrots, onions, and spices. It is usually served in generous portions.'
+      name_ru: 'Плов (ош)',
+      name_en: 'Plov (osh)',
+      desc_ru: 'Традиционное блюдо с рисом, мясом, морковью и специями. Обычно подаётся в крупных порциях. Порция в городе стоит порядка 35 сомони (ориентир, цены меняются).',
+      desc_en: 'Traditional rice dish with meat, carrots, onions, and spices. It is usually served in generous portions. A portion in the city costs roughly 35 TJS (a guideline; prices change).'
     },
     {
       name_ru: 'Манты',
@@ -362,73 +390,75 @@ window.CONTENT = {
       kind: 'place',
       name_ru: 'Хозяин / связь 24/7',
       name_en: 'Host / 24/7 contact',
-      desc_ru: 'Поддержка по вопросом транспорта, маршрутов, бронирования, SIM-карты и местных рекомендаций.',
+      desc_ru: 'Поддержка по вопросам транспорта, маршрутов, бронирования, SIM-карты и местных рекомендаций.',
       desc_en: 'Support for transport, routes, booking, SIM cards, and local recommendations around the clock.',
-      phone: '+992 00 000 0000',
-      whatsapp: '+992000000000'
+      phone: '+992 92 754 4484',
+      whatsapp: '+992927544484'
     }
   ]
 };
 
+// Ориентиры по времени и ценам взяты из путеводителей и туристических форумов.
+// Цены на такси часто меняются — перед поездкой согласуйте их с водителем.
 window.INTERCITY = [
   {
     id: 'khujand-dushanbe',
     title_ru: 'Худжанд → Душанбе',
     title_en: 'Khujand → Dushanbe',
     img: '../assets/img/Khujand.png',
-    price_ru: 'от 250 до 450 сомони (такси), маршрутка дешевле',
-    price_en: 'from 250–450 TJS (taxi), shared ride is cheaper',
-    time_ru: '≈ 5–7 часов',
-    time_en: '≈ 5–7 hours',
-    where_ru: 'Обычно выезд идёт с центральных стоянок такси, рынка или автостанции. Лучше уточнить точку у хозяина в день поездки.',
-    where_en: 'Trips usually depart from central taxi stands, markets, or bus stations. Confirm the exact pickup point with your host on the day of travel.',
-    tips_ru: 'Лучше ехать утром. Уточняйте цену заранее, заранее согласуйте остановки и количество мест.',
-    tips_en: 'Plan to leave in the morning. Agree the fare in advance and confirm the route and seat count.',
+    price_ru: 'общее такси — ориентир 120–150 сомони с человека (данные прошлых лет, сейчас может быть дороже); целая машина — по договорённости',
+    price_en: 'shared taxi — roughly 120–150 TJS per person (older figures, may be higher now); private car — negotiable',
+    time_ru: '≈ 310–340 км, обычно 5–7 часов (через тоннель Анзоб, зависит от сезона и остановок)',
+    time_en: '≈ 310–340 km, usually 5–7 hours (via the Anzob Tunnel, depends on season and stops)',
+    where_ru: 'Общие такси и маршрутки уходят с центрального автовокзала. Лучше уточнить точку у хозяина в день поездки.',
+    where_en: 'Shared taxis and minibuses depart from the central bus station. Confirm the exact point with your host on the day of travel.',
+    tips_ru: 'Лучше ехать утром. Уточняйте цену заранее, заранее согласуйте остановки и количество мест. В горных участках погода может меняться.',
+    tips_en: 'Plan to leave in the morning. Agree the fare in advance and confirm stops and seat count. Mountain weather can change.',
     mapQuery: 'Khujand bus station'
   },
   {
     id: 'khujand-tashkent',
-    title_ru: 'Худжанд → Ташкент (район Ойбек / граница)',
-    title_en: 'Khujand → Tashkent (Oybek / border area)',
+    title_ru: 'Худжанд → Ташкент (через пункт пропуска Ойбек)',
+    title_en: 'Khujand → Tashkent (via Oybek border crossing)',
     img: '../assets/img/roads.jpg',
-    price_ru: 'такси или частный трансфер — по договорённости',
-    price_en: 'taxi or private transfer — negotiable',
-    time_ru: '≈ 25–50 минут до района границы / точки перехода',
-    time_en: '≈ 25–50 minutes to the border area',
+    price_ru: 'такси до Ойбека — ориентир 50–80 сомони (данные прошлых лет); частный трансфер до Ташкента — по договорённости',
+    price_en: 'taxi to Oybek — roughly 50–80 TJS (older figures); private transfer to Tashkent — negotiable',
+    time_ru: '≈ 70 км (около 1 часа) до границы Ойбек; всего до Ташкента около 160 км, ≈ 3 часа с оформлением',
+    time_en: '≈ 70 km (about 1 hour) to the Oybek border; about 160 km to Tashkent, ≈ 3 hours including border procedures',
     where_ru: 'Такси или частные водители. Важно заранее согласовать встречу и обратный выезд.',
     where_en: 'Taxi or private drivers. Pre-arrange the pickup point and return trip for smooth travel.',
-    tips_ru: 'Возьмите воду, наличные и немного времени на оформление. Лучший вариант — согласовать поездку заранее.',
-    tips_en: 'Carry water, cash, and enough time for border procedures. Best to arrange the trip in advance.',
-    mapQuery: 'Oybek border Khujand'
+    tips_ru: 'Возьмите паспорт, воду, наличные и запас времени на пограничное оформление. Проверьте визовые требования для вашего гражданства и часы работы пункта пропуска. Лучший вариант — согласовать поездку заранее.',
+    tips_en: 'Bring your passport, water, cash, and extra time for border procedures. Check visa requirements for your nationality and the crossing’s opening hours. Best to arrange the trip in advance.',
+    mapQuery: 'Oybek border crossing Tajikistan Uzbekistan'
   },
   {
     id: 'khujand-kayrakkum',
-    title_ru: 'Худжанд → Кайраккум',
-    title_en: 'Khujand → Kayrakkum',
+    title_ru: 'Худжанд → Кайраккум (Гулистон) и «Таджикское море»',
+    title_en: 'Khujand → Kayrakkum (Guliston) & the “Tajik Sea”',
     img: '../assets/img/Kayrakkum.jpg',
-    price_ru: 'такси или частный водитель — по договорённости',
-    price_en: 'taxi or private driver — negotiable',
-    time_ru: '≈ 25–50 минут',
-    time_en: '≈ 25–50 minutes',
-    where_ru: 'Обычно выезжают из центра или ближайшей точки, где удобно ждать такси. Можно попросить хозяина помочь с маршрутом.',
-    where_en: 'Trips usually start from central or nearby pickup points. Your host can often help find the easiest route.',
-    tips_ru: 'Берите воду, головной убор и солнцезащиту. Лучше ехать днём, если хотите провести время у воды.',
-    tips_en: 'Take water, a hat, and sun protection. It is preferable to travel in daylight if you plan to spend time by the water.',
-    mapQuery: 'Kayrakkum reservoir Khujand'
+    price_ru: 'маршрутка № 40 от остановки у рынка Панжшанбе — около 5 сомони; такси — около 50–60 сомони в одну сторону',
+    price_en: 'minibus no. 40 from the Panjshanbe Market stop — about 5 TJS; taxi — about 50–60 TJS one way',
+    time_ru: '≈ 20 км, около 20–40 минут',
+    time_en: '≈ 20 km, about 20–40 minutes',
+    where_ru: 'Маршрутки идут от остановки у рынка Панжшанбе; такси можно вызвать через приложение. Хороший ориентир для высадки — санаторий «Бахористон». Последняя маршрутка обратно обычно уходит около 18:00–19:00.',
+    where_en: 'Minibuses leave from the Panjshanbe Market stop; taxis can be booked through an app. A good drop-off point is the Bahoriston sanatorium. The last minibus back usually leaves around 6–7 PM.',
+    tips_ru: 'Берите воду, головной убор и солнцезащиту. Пляж у «Бахористона» каменистый, а на территорию соседних санаториев летом может взиматься небольшая плата. Лучше ехать днём.',
+    tips_en: 'Take water, a hat, and sun protection. The beach near Bahoriston is rocky, and neighboring sanatoriums may charge a small entry fee in summer. Travel in daylight.',
+    mapQuery: 'Kayrakkum reservoir Bahoriston Khujand'
   },
   {
     id: 'khujand-penjikent',
     title_ru: 'Худжанд → Пенджикент',
     title_en: 'Khujand → Penjikent',
     img: '../assets/img/roads.jpg',
-    price_ru: 'поездка на машине или маршрутке — зависит от маршрута и сезона',
-    price_en: 'by car or shared transport — depends on the route and season',
-    time_ru: '≈ 2–3 часа',
-    time_en: '≈ 2–3 hours',
-    where_ru: 'Обычно поездки организуются через центральную стоянку или через местного водителя. Лучше заранее обсудить точку отъезда.',
-    where_en: 'Trips are typically organised through a central stand or a trusted local driver. Confirm the departure point in advance.',
-    tips_ru: 'Двигайтесь в светлое время суток и заранее проверьте, сколько времени будет в пути. Не лишним будет уточнить остановки у водителя.',
-    tips_en: 'Travel in daylight and confirm the route and travel time with the driver. It is wise to ask about stops in advance.',
+    price_ru: 'общее такси или маршрутка — цена зависит от сезона и машины; частный водитель — по договорённости',
+    price_en: 'shared taxi or minibus — price depends on season and vehicle; private driver — negotiable',
+    time_ru: '≈ 260–270 км, обычно 5–6 часов',
+    time_en: '≈ 260–270 km, usually 5–6 hours',
+    where_ru: 'Общие такси и маршрутки в сторону Пенджикента отправляются с центрального автовокзала. Лучше заранее обсудить точку отъезда и остановки.',
+    where_en: 'Shared taxis and minibuses toward Penjikent depart from the central bus station. Confirm the departure point and stops in advance.',
+    tips_ru: 'Выезжайте рано утром и двигайтесь в светлое время суток. Заранее проверьте время в пути и состояние дороги. От Пенджикента удобно ехать к озёрам Гафткул (Семь озёр, около 80 км).',
+    tips_en: 'Leave early in the morning and travel in daylight. Check travel time and road conditions in advance. From Penjikent you can continue to the Haftkul (Seven Lakes), about 80 km away.',
     mapQuery: 'Penjikent Tajikistan'
   }
 ];
