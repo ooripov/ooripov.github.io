@@ -238,10 +238,10 @@ window.CONTENT = {
       kind: 'place',
       name_ru: 'Супермаркет «Анис»',
       name_en: 'Anis Supermarket',
-      desc_ru: 'Удобный магазин в центре города, который часто используют гости для повседневных покупок и обналичивания денег с карты. Если вам нужно быстро найти точку с наличными или уточнить ближайшую кассу, лучше заранее спросить у хозяина.',
-      desc_en: 'A convenient city-center shop commonly used by guests for everyday purchases and cash withdrawals. If you need a quick cash-related stop or want the closest working point, it is best to ask your host in advance.',
-      address: 'Худжанд, центральный район (точный адрес уточняйте у хозяина)',
-      hours: 'Обычно в дневное время / уточняйте',
+      desc_ru: 'Удобный магазин в центре города, который часто используют гости для повседневных покупок и обналичивания денег с карты.',
+      desc_en: 'A convenient city-center shop commonly used by guests for everyday purchases and cash withdrawals.',
+      address: 'Худжанд, центральный район',
+      hours: '06:00–23:00',
       phone: '',
       whatsapp: '',
       mapQuery: 'Supermarket Anis Khujand'
@@ -253,7 +253,7 @@ window.CONTENT = {
       desc_ru: 'Государственный банк с отделениями по всей стране; история банка начинается с сберегательной кассы, открытой в Худжанде в 1885 году. Подходит для обмена валюты и базовых услуг. Возьмите паспорт.',
       desc_en: 'A state bank with branches across the country; its history goes back to a savings office opened in Khujand in 1885. Suitable for currency exchange and basic services. Bring your passport.',
       address: 'Худжанд, центр (точный адрес ближайшего отделения уточняйте на amonatbonk.tj или у хозяина)', // TODO
-      hours: '09:00–17:00 (уточняйте)',
+      hours: '09:00–16:00',
       phone: '',
       whatsapp: '',
       mapQuery: 'Amonatbonk Khujand'
@@ -264,8 +264,8 @@ window.CONTENT = {
       name_en: 'Bank Eskhata (head office in Khujand)',
       desc_ru: 'Один из крупнейших банков Таджикистана, головной офис находится в Худжанде. Банкоматы банка считаются надёжными для карт Visa/Mastercard.',
       desc_en: 'One of the largest banks in Tajikistan, headquartered in Khujand. Its ATMs are widely reported as reliable for Visa/Mastercard.',
-      address: 'Худжанд (точный адрес отделения уточняйте на сайте банка)', // TODO
-      hours: '09:00–17:00 (уточняйте)',
+      address: 'Худжанд ',
+      hours: '09:00–16:00 ',
       phone: '',
       whatsapp: '',
       mapQuery: 'Bank Eskhata Khujand'
@@ -291,22 +291,10 @@ window.CONTENT = {
       desc_ru: 'Крупнейший оператор страны. Здесь можно купить SIM-карту (нужен паспорт), пополнить баланс и подключить мобильный интернет. Есть и другие центры — у автовокзала и в 34-м микрорайоне (ТЦ «Абукарим»).',
       desc_en: 'The largest mobile operator in the country. You can buy a SIM card (bring your passport), top up, and get mobile data. Other service centers are near the bus station and in the 34th microdistrict (Abukarim shopping center).',
       address: 'Худжанд, ул. К. Худжанди, 162',
-      hours: '09:00–18:00 (уточняйте)', // TODO: проверить
+      hours: '09:00–16:00 ',
       phone: '',
       whatsapp: '',
       mapQuery: 'Tcell Khujand Kamoli Khujandi 162'
-    },
-    {
-      kind: 'place',
-      name_ru: 'Центр обслуживания Tcell (у автовокзала)',
-      name_en: 'Tcell service center (near the bus station)',
-      desc_ru: 'Удобно, если вы только приехали на автовокзал: можно сразу купить SIM-карту и интернет.',
-      desc_en: 'Handy if you have just arrived at the bus station: buy a SIM card and data right away.',
-      address: 'Худжанд, рядом с автовокзалом',
-      hours: '09:00–18:00 (уточняйте)',
-      phone: '',
-      whatsapp: '',
-      mapQuery: 'Tcell Khujand bus station'
     },
     {
       kind: 'place',
