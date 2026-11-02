@@ -78,6 +78,9 @@ window.I18N = {
     host_booking_full: 'Настройки бронирования и консультации',
     host_advice_full: 'Советы по маршрутам, лучшему времени посещения достопримечательностей',
     host_tips_full: 'Подсказки “как себя вести и что попробовать”',
+    host_contact_owner: 'По всем вопросам личного сервиса или проживания обращайтесь к владельцу по телефону или WhatsApp.',
+    host_owner_phone_label: 'Телефон',
+    host_owner_whatsapp_label: 'WhatsApp',
 
     coming_soon: 'Скоро добавим подробности…',
 
@@ -178,7 +181,10 @@ intercity_tips: "Советы",
     host_booking_full: 'Booking settings & consultation',
     host_advice_full: 'Advice on routes and best visiting times',
     host_tips_full: 'Tips: how to behave & what to try',
-    
+    host_contact_owner: 'For any personal service or accommodation questions, please contact the owner by phone or WhatsApp.',
+    host_owner_phone_label: 'Phone',
+    host_owner_whatsapp_label: 'WhatsApp',
+
     coming_soon: 'Details coming soon…',
     
     field_address: 'Address',
