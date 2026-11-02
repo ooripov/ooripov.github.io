@@ -1,11 +1,7 @@
-// Helpers for demo URLs
 function buildMapUrl(q) {
   const query = encodeURIComponent(q || 'Khujand');
   return 'https://www.google.com/maps/search/?api=1&query=' + query;
 }
-
-// ВАЖНО: поля с пометкой TODO — это данные, которые нельзя проверить из открытых источников
-// (ваш личный телефон/WhatsApp, точные цены в магазинах и т.п.). Заполните их сами.
 
 window.MODERN_SPOTS = [
   {
@@ -406,8 +402,8 @@ window.INTERCITY = [
     title_ru: 'Худжанд → Душанбе',
     title_en: 'Khujand → Dushanbe',
     img: '../assets/img/Khujand.png',
-    price_ru: 'общее такси — ориентир 120–150 сомони с человека (данные прошлых лет, сейчас может быть дороже); целая машина — по договорённости',
-    price_en: 'shared taxi — roughly 120–150 TJS per person (older figures, may be higher now); private car — negotiable',
+    price_ru: 'общее такси — ориентировочно 200 сомони с человека; целая машина — по договорённости можно узнать у владельца квартиры',
+    price_en: 'shared taxi — roughly 200 TJS per person; private car — negotiable, ask your host for details',
     time_ru: '≈ 310–340 км, обычно 5–7 часов (через тоннель Анзоб, зависит от сезона и остановок)',
     time_en: '≈ 310–340 km, usually 5–7 hours (via the Anzob Tunnel, depends on season and stops)',
     where_ru: 'Общие такси и маршрутки уходят с центрального автовокзала. Лучше уточнить точку у хозяина в день поездки.',
@@ -421,10 +417,10 @@ window.INTERCITY = [
     title_ru: 'Худжанд → Ташкент (через пункт пропуска Ойбек)',
     title_en: 'Khujand → Tashkent (via Oybek border crossing)',
     img: '../assets/img/roads.jpg',
-    price_ru: 'такси до Ойбека — ориентир 50–80 сомони (данные прошлых лет); частный трансфер до Ташкента — по договорённости',
-    price_en: 'taxi to Oybek — roughly 50–80 TJS (older figures); private transfer to Tashkent — negotiable',
-    time_ru: '≈ 70 км (около 1 часа) до границы Ойбек; всего до Ташкента около 160 км, ≈ 3 часа с оформлением',
-    time_en: '≈ 70 km (about 1 hour) to the Oybek border; about 160 km to Tashkent, ≈ 3 hours including border procedures',
+    price_ru: 'такси до Ойбека — ориентир 50–60 сомони из автовокзала; частный трансфер до Ташкента — 230 сомони',
+    price_en: 'taxi to Oybek — roughly 50–60 TJS from the bus station; private transfer to Tashkent — 230 TJS',
+    time_ru: '≈ 70 км (около 1 часа) до границы Ойбек; всего до Ташкента около 160 км, ≈ 4 часа с оформлением',
+    time_en: '≈ 70 km (about 1 hour) to the Oybek border; about 160 km to Tashkent, ≈ 4 hours including border procedures',
     where_ru: 'Такси или частные водители. Важно заранее согласовать встречу и обратный выезд.',
     where_en: 'Taxi or private drivers. Pre-arrange the pickup point and return trip for smooth travel.',
     tips_ru: 'Возьмите паспорт, воду, наличные и запас времени на пограничное оформление. Проверьте визовые требования для вашего гражданства и часы работы пункта пропуска. Лучший вариант — согласовать поездку заранее.',
@@ -451,8 +447,8 @@ window.INTERCITY = [
     title_ru: 'Худжанд → Пенджикент',
     title_en: 'Khujand → Penjikent',
     img: '../assets/img/roads.jpg',
-    price_ru: 'общее такси или маршрутка — цена зависит от сезона и машины; частный водитель — по договорённости',
-    price_en: 'shared taxi or minibus — price depends on season and vehicle; private driver — negotiable',
+    price_ru: 'общее такси или маршрутка — ориентировочно 200 сомони с человека; частный водитель — по договорённости можно узнать у хозяина квартиры',
+    price_en: 'shared taxi or minibus — roughly 200 TJS per person; private driver — negotiable, ask your host for details',
     time_ru: '≈ 260–270 км, обычно 5–6 часов',
     time_en: '≈ 260–270 km, usually 5–6 hours',
     where_ru: 'Общие такси и маршрутки в сторону Пенджикента отправляются с центрального автовокзала. Лучше заранее обсудить точку отъезда и остановки.',
