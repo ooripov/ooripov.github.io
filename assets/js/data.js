@@ -236,6 +236,18 @@ window.CONTENT = {
   'essentials-banks': [
     {
       kind: 'place',
+      name_ru: 'Супермаркет «Анис»',
+      name_en: 'Anis Supermarket',
+      desc_ru: 'Удобный магазин в центре города, который часто используют гости для повседневных покупок и обналичивания денег с карты. Если вам нужно быстро найти точку с наличными или уточнить ближайшую кассу, лучше заранее спросить у хозяина.',
+      desc_en: 'A convenient city-center shop commonly used by guests for everyday purchases and cash withdrawals. If you need a quick cash-related stop or want the closest working point, it is best to ask your host in advance.',
+      address: 'Худжанд, центральный район (точный адрес уточняйте у хозяина)',
+      hours: 'Обычно в дневное время / уточняйте',
+      phone: '',
+      whatsapp: '',
+      mapQuery: 'Supermarket Anis Khujand'
+    },
+    {
+      kind: 'place',
       name_ru: 'Амонатбонк (Сберегательный банк Таджикистана)',
       name_en: 'Amonatbonk (Savings Bank of Tajikistan)',
       desc_ru: 'Государственный банк с отделениями по всей стране; история банка начинается с сберегательной кассы, открытой в Худжанде в 1885 году. Подходит для обмена валюты и базовых услуг. Возьмите паспорт.',
@@ -268,8 +280,8 @@ window.CONTENT = {
       hours: 'Обычно круглосуточно',
       phone: '',
       whatsapp: '',
-      mapQuery: 'ATM Khujand center'
-    }
+      mapQuery: 'Супермаркет Анис'
+    }    
   ],
   'essentials-sim': [
     {
