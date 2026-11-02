@@ -59,6 +59,9 @@ window.I18N = {
     tourist_guide_card: 'Персональный гид / хозяин',
     tourist_transport_full: 'Организация транспортных услуг',
     tourist_allinclusive_card: 'Пакеты “всё включено”',
+    tourist_contact_owner: 'Чтобы забронировать эту услугу, уточните детали у хозяина или свяжитесь со мной напрямую по телефону или WhatsApp.',
+    tourist_contact_phone_label: 'Телефон',
+    tourist_contact_whatsapp_label: 'WhatsApp',
 
     gift_store_title: 'Магазин подарков',
     gift_store_desc: 'Выберите подарок — откроется описание и цена.',
@@ -162,7 +165,10 @@ intercity_tips: "Советы",
     tourist_guide_card: 'Personal guide / host',
     tourist_transport_full: 'Transport arrangements',
     tourist_allinclusive_card: 'All-inclusive packages',
-    
+    tourist_contact_owner: 'To book this service, confirm the details with the host or contact me directly by phone or WhatsApp.',
+    tourist_contact_phone_label: 'Phone',
+    tourist_contact_whatsapp_label: 'WhatsApp',
+
     gift_store_title: 'Gift shop',
     gift_store_desc: 'Choose a gift — you will see details and price.',
     
